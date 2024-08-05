@@ -10,10 +10,13 @@ const cssVariable = {
   fontSize: "1.25rem",
   fontWeight: 600,
 }
+
+const isTrue = true
+
 const element = (
-  <p style={cssVariable} className="text-gray-100 bg-blue-300">
-    {sampleText}
-  </p>
+  <>
+    <div style={{ display: isTrue ? "initial" : "none" }}>表示</div>
+  </>
 )
 root.render(element)
 // root.render(
