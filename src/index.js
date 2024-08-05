@@ -11,22 +11,13 @@ const cssVariable = {
   fontWeight: 600,
 }
 
-const testfunction = (num1, num2) => {
-  return num1 + num2
-}
-
-const testfunc1 = (num1, num2) => {
-  return num1 * num2
-}
+const googleUrl = "https://www.google.com"
 
 const element = (
   <>
-    <p style={cssVariable} className="text-gray-100 bg-blue-300">
-      {testfunction(1, 2)}
-    </p>
-    <p style={cssVariable} className="text-gray-100 bg-blue-300">
-      {testfunction(1, 2)}
-    </p>
+    <a href={googleUrl} style={cssVariable} className="text-gray-100 bg-blue-300">
+      {sampleText}
+    </a>
   </>
 )
 root.render(element)
