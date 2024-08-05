@@ -11,13 +11,17 @@ const cssVariable = {
   fontWeight: 600,
 }
 
-const isTrue = true
+const num = 2
+const num2 = 2
 
 const element = (
   <>
-    <div style={{ display: isTrue ? "initial" : "none" }}>表示</div>
+    {/* JSX内でif文は書けない */}
+    if(num === num2 && ) {<div>表示</div>}
+    {num === num2 && <div>同じ値です</div>}
   </>
 )
+
 root.render(element)
 // root.render(
 //   <React.StrictMode>
