@@ -11,13 +11,11 @@ const cssVariable = {
   fontWeight: 600,
 }
 
-const googleUrl = "https://www.google.com"
+const isTrue = true
 
 const element = (
   <>
-    <a href={googleUrl} style={cssVariable} className="text-gray-100 bg-blue-300">
-      {sampleText}
-    </a>
+    <div style={{ display: isTrue ? "initial" : "none" }}>表示</div>
   </>
 )
 root.render(element)
