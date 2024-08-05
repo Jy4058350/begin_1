@@ -5,7 +5,16 @@ import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-const element = <p className="text-gray-100 bg-red-300">hello react JSX</p>
+const sampleText = "サンプルテキスト"
+const cssVariable = {
+  fontSize: "1.25rem",
+  fontWeight: 600,
+}
+const element = (
+  <p style={cssVariable} className="text-gray-100 bg-blue-300">
+    {sampleText}
+  </p>
+)
 root.render(element)
 // root.render(
 //   <React.StrictMode>
