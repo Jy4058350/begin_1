@@ -5,7 +5,7 @@ import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-const element = "hello react"
+const element = <p className="text-gray-100 bg-red-300">hello react JSX</p>
 root.render(element)
 // root.render(
 //   <React.StrictMode>
