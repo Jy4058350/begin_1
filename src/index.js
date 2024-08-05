@@ -20,13 +20,14 @@ const testfunc1 = (num1, num2) => {
 }
 
 const element = (
-  <p style={cssVariable} className="text-gray-100 bg-blue-300">
-    {
-      //コメント
-    }
-    {/* コメントです */}
-    {testfunction(1, 2)}と{testfunc1(4, 5)}
-  </p>
+  <>
+    <p style={cssVariable} className="text-gray-100 bg-blue-300">
+      {testfunction(1, 2)}
+    </p>
+    <p style={cssVariable} className="text-gray-100 bg-blue-300">
+      {testfunction(1, 2)}
+    </p>
+  </>
 )
 root.render(element)
 // root.render(
