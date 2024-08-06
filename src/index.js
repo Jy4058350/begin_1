@@ -11,14 +11,18 @@ const cssVariable = {
   fontWeight: 600,
 }
 
-const num = 2
-const num2 = 2
+const items = [
+  { id: 1, name: "item1" },
+  { id: 2, name: "item2" },
+]
 
 const element = (
   <>
-    {/* JSX内でif文は書けない */}
-    if(num === num2 && ) {<div>表示</div>}
-    {num === num2 && <div>同じ値です</div>}
+    <ul>
+      {items.map(item => (
+        <li key={item.id}>{item.name}</li>
+      ))}
+    </ul>
   </>
 )
 
