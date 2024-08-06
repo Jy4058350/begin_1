@@ -15,16 +15,15 @@ const ParentChild = () => {
   )
 }
 
-const ChildComponent = props => {
-  console.log("props", props.name)
+const ChildComponent = ({ name, email }) => {
   return (
     <>
       子です。
       <br />
       それから。
       <br />
-      <span className="block">名前は{props.name}です。</span>
-      <span className="block">emailは{props.email}です</span>
+      <span className="block">名前は{name}です。</span>
+      <span className="block">emailは{email}です</span>
     </>
   )
 }
