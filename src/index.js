@@ -29,8 +29,8 @@ const ParentComponent = () => {
       コンポーネントを複数表示
       <br />
       {members.map(member => (
-        // <MemberList key={member.id} name={member.name} />
-        <MemberList name={member.name} />
+        <MemberList key={member.id} name={member.name} />
+        // <MemberList name={member.name} />
       ))}
     </>
   )
