@@ -13,11 +13,13 @@ const cssVariable = {
 
 const handleClick = e => console.log("ボタンがクリックされました")
 const handleClick2 = e => console.log(e.target.textContent)
+const handleClick3 = init => console.log(`引数は${init}だよ`)
 
 const element = (
   <>
     <button onClick={handleClick}>ボタン</button>
     <button onClick={handleClick2}>ボタン2だよ</button>
+    <button onClick={() => handleClick3(3)}>ボタン3だよ</button>
   </>
 )
 
