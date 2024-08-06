@@ -11,18 +11,13 @@ const cssVariable = {
   fontWeight: 600,
 }
 
-const items = [
-  { id: 1, name: "item1" },
-  { id: 2, name: "item2" },
-]
+const handleClick = e => console.log("ボタンがクリックされました")
+const handleClick2 = e => console.log(e.target.textContent)
 
 const element = (
   <>
-    <ul>
-      {items.map(item => (
-        <li key={item.id}>{item.name}</li>
-      ))}
-    </ul>
+    <button onClick={handleClick}>ボタン</button>
+    <button onClick={handleClick2}>ボタン2だよ</button>
   </>
 )
 
