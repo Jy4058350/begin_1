@@ -25,7 +25,21 @@ const ParentComponent = () => {
   return (
     <>
       親です。
-      <ChildComponent members={members} />
+      <ChildComponent members={members} /> <br />
+      コンポーネントを複数表示
+      <br />
+      {members.map(member => (
+        // <MemberList key={member.id} name={member.name} />
+        <MemberList name={member.name} />
+      ))}
+    </>
+  )
+}
+
+const MemberList = props => {
+  return (
+    <>
+      <div>{props.name}</div>
     </>
   )
 }
@@ -44,7 +58,11 @@ const ChildComponent = props => {
   )
 }
 
-root.render(<ParentComponent />)
+root.render(
+  <React.StrictMode>
+    <ParentComponent />
+  </React.StrictMode>
+)
 // root.render(
 //   <React.StrictMode>
 //     <App />
