@@ -3,32 +3,48 @@ import ReactDOM from "react-dom/client"
 // import "./index.css";
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
+import { list } from "postcss"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-const ParentChild = () => {
+const ParentComponent = () => {
+  const members = [
+    {
+      id: 1,
+      name: "伊藤",
+    },
+    {
+      id: 2,
+      name: "佐藤",
+    },
+    {
+      id: 3,
+      name: "高橋",
+    },
+  ]
   return (
     <>
       親です。
-      <ChildComponent name="伊藤" email="test@example.com" />
+      <ChildComponent members={members} />
     </>
   )
 }
 
-const ChildComponent = ({ name, email }) => {
+const ChildComponent = props => {
+  console.log("props", props.members[0])
   return (
     <>
-      子です。
-      <br />
-      それから。
-      <br />
-      <span className="block">名前は{name}です。</span>
-      <span className="block">emailは{email}です</span>
+      こどもは{props.members[0].name}です
+      <ul>
+        {props.members.map(member => (
+          <li key={member.id}>{member.name}</li>
+        ))}
+      </ul>
     </>
   )
 }
 
-root.render(<ParentChild />)
+root.render(<ParentComponent />)
 // root.render(
 //   <React.StrictMode>
 //     <App />
