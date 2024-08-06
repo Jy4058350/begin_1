@@ -10,13 +10,23 @@ const ParentChild = () => {
   return (
     <>
       親です。
-      <ChildComponent />
+      <ChildComponent name="伊藤" email="test@example.com" />
     </>
   )
 }
 
-const ChildComponent = () => {
-  return <>子です</>
+const ChildComponent = props => {
+  console.log("props", props.name)
+  return (
+    <>
+      子です。
+      <br />
+      それから。
+      <br />
+      <span className="block">名前は{props.name}です。</span>
+      <span className="block">emailは{props.email}です</span>
+    </>
+  )
 }
 
 root.render(<ParentChild />)
