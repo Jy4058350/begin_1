@@ -11,12 +11,16 @@ const ParentComponent = () => {
   return (
     <>
       親です <br />
-      <ChildComponent name="strict mode" />
+      <ChildComponent name="伊藤">ここにある文章が子に表示される</ChildComponent>
     </>
   )
 }
-const ChildComponent = ({ name = "test" }) => {
-  return <>子です。 {name}</>
+const ChildComponent = props => {
+  return (
+    <>
+      子です {props.children} <br /> {props.name}
+    </>
+  )
 }
 root.render(
   <React.StrictMode>
