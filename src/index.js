@@ -11,19 +11,18 @@ const ParentComponent = () => {
   return (
     <>
       親です <br />
-      <ChildComponent name="douan" />
+      <ChildComponent name="strict mode" />
     </>
   )
 }
 const ChildComponent = ({ name = "test" }) => {
   return <>子です。 {name}</>
 }
-root.render(<ParentComponent />)
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
+root.render(
+  <React.StrictMode>
+    <ParentComponent />
+  </React.StrictMode>
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
