@@ -1,30 +1,36 @@
-import React from "react"
+import React, { useState } from "react"
 import ReactDOM from "react-dom/client"
 // import "./index.css";
-import App from "./App"
+// import App from "./App"
 import reportWebVitals from "./reportWebVitals"
-import { list } from "postcss"
+// import { list } from "postcss"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-const ParentComponent = () => {
+const TestComponent = () => {
+  const [count, setCount] = useState(0)
+  const handleEvent = () => {
+    setCount(count + 1)
+  }
   return (
     <>
-      親です <br />
-      <ChildComponent name="strict mode" />
+      testUseState <br />
+      count: {count} <br />
+      <button onClick={handleEvent}>ボタン</button>
+      <ChildComponent handleClick={handleEvent} />
     </>
   )
 }
-const ChildComponent = ({ name = "test" }) => {
-  return <>子です。 {name}</>
+const ChildComponent = props => {
+  return (
+    <>
+      child is . <br />
+      <button onClick={props.handleClick}>ぼたん</button>
+    </>
+  )
 }
 root.render(
   <React.StrictMode>
-    <ParentComponent />
+    <TestComponent />
   </React.StrictMode>
 )
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals()
