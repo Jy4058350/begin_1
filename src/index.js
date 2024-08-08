@@ -6,27 +6,26 @@ import reportWebVitals from "./reportWebVitals"
 // import { list } from "postcss"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
+console.log(root)
 
-const TestUseState = () => {
+const TestComponent = () => {
   const [count, setCount] = useState(0)
-  console.log(`コンポーネント表示${count}`)
-  const handleClick = () => {
-    setCount(count + 1)
-    console.log(`関数内での表示${count}`)
+  const handleEvent = () => {
+    setCount(count => {
+      console.log(count)
+      return count + 1
+    })
   }
   return (
     <>
-      test useState
-      <br />
-      count is {count}
-      <br />
-      <button onClick={handleClick}>ボタン</button>
+      testUseState <br />
+      <button onClick={handleEvent}>ボタン</button>
     </>
   )
 }
 
 root.render(
   <React.StrictMode>
-    <TestUseState />
+    <TestComponent />
   </React.StrictMode>
 )
