@@ -1,30 +1,29 @@
-import React from "react"
+import React, { useState } from "react"
 import ReactDOM from "react-dom/client"
 // import "./index.css";
-import App from "./App"
+// import App from "./App"
 import reportWebVitals from "./reportWebVitals"
-import { list } from "postcss"
+// import { list } from "postcss"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-const ParentComponent = () => {
+const UseState = () => {
+  const [count, setCount] = useState(0)
+  const handleClick = () => {
+    setCount(count + 1)
+  }
   return (
     <>
-      親です <br />
-      <ChildComponent name="伊藤">ここにある文章が子に表示される</ChildComponent>
+      useState <br />
+      カウント：{count} <br />
+      <button onClick={handleClick}>ボタン</button>
     </>
   )
 }
-const ChildComponent = props => {
-  return (
-    <>
-      子です {props.children} <br /> {props.name}
-    </>
-  )
-}
+
 root.render(
   <React.StrictMode>
-    <ParentComponent />
+    <UseState />
   </React.StrictMode>
 )
 
