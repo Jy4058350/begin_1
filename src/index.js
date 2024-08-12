@@ -1,36 +1,51 @@
 import React, { useState } from "react"
 import ReactDOM from "react-dom/client"
-// import "./index.css";
-// import App from "./App"
-import reportWebVitals from "./reportWebVitals"
-// import { list } from "postcss"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-const TestComponent = () => {
-  const [count, setCount] = useState(0)
-  const handleEvent = () => {
-    setCount(count + 1)
+const TabMenu = () => {
+  const [active, setActive] = useState(1)
+
+  const activate = id => {
+    console.log(id)
+    setActive(active => (active = id))
   }
+
+  const items = [
+    {
+      id: 1,
+      title: "Home",
+      content: "This is Home",
+    },
+    {
+      id: 2,
+      title: "About",
+      content: "This is About",
+    },
+    {
+      id: 3,
+      title: "Contact",
+      content: "This is Contact",
+    },
+  ]
+  const activeItem = items.find(item => item.id === active)
+
   return (
     <>
-      testUseState <br />
-      count: {count} <br />
-      <button onClick={handleEvent}>ボタン</button>
-      <ChildComponent handleClick={handleEvent} />
+      <section className="tag">
+        <ul className="tab__label">
+          {items.map(item => (
+            <li key={item.id}>
+              <a className={item.id === active ? "active" : undefined} href="#001" onClick={() => activate(item.id)}>
+                {item.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+        {activeItem && <div className="tab__content">{activeItem.content}</div>}
+      </section>
     </>
   )
 }
-const ChildComponent = props => {
-  return (
-    <>
-      child is . <br />
-      <button onClick={props.handleClick}>ぼたん</button>
-    </>
-  )
-}
-root.render(
-  <React.StrictMode>
-    <TestComponent />
-  </React.StrictMode>
-)
+
+root.render(<TabMenu />)
