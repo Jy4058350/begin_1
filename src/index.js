@@ -1,51 +1,28 @@
 import React, { useState } from "react"
 import ReactDOM from "react-dom/client"
+import "./styles.css"
 
-const root = ReactDOM.createRoot(document.getElementById("root"))
+const app = ReactDOM.createRoot(document.getElementById("app"))
 
-const TabMenu = () => {
-  const [active, setActive] = useState(1)
-
-  const activate = id => {
-    console.log(id)
-    setActive(active => (active = id))
-  }
-
-  const items = [
-    {
-      id: 1,
-      title: "Home",
-      content: "This is Home",
-    },
-    {
-      id: 2,
-      title: "About",
-      content: "This is About",
-    },
-    {
-      id: 3,
-      title: "Contact",
-      content: "This is Contact",
-    },
-  ]
-  const activeItem = items.find(item => item.id === active)
+const ModalWindow = () => {
+  const [isShow, setIsShow] = useState(true)
+  const toggleShow = () => setIsShow(!isShow)
+  console.log(isShow)
 
   return (
     <>
-      <section className="tag">
-        <ul className="tab__label">
-          {items.map(item => (
-            <li key={item.id}>
-              <a className={item.id === active ? "active" : undefined} href="#001" onClick={() => activate(item.id)}>
-                {item.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-        {activeItem && <div className="tab__content">{activeItem.content}</div>}
-      </section>
+      <button onClick={toggleShow}>画像を表示</button>
+      <div style={{ display: isShow ? "initial" : "none" }}>
+        <div className="modal__inner">
+          <img src="./image001.jpg" alt="画像" />
+          <div onClick={() => setIsShow(!isShow)} className="modal__close">
+            <i className="fas fa-times"></i>
+          </div>
+        </div>
+        <div onClick={() => setIsShow(!isShow)} className="modal__background"></div>
+      </div>
     </>
   )
 }
 
-root.render(<TabMenu />)
+app.render(<ModalWindow />)
