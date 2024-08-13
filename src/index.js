@@ -1,36 +1,28 @@
 import React, { useState } from "react"
 import ReactDOM from "react-dom/client"
-// import "./index.css";
-// import App from "./App"
-import reportWebVitals from "./reportWebVitals"
-// import { list } from "postcss"
+import "./styles.css"
 
-const root = ReactDOM.createRoot(document.getElementById("root"))
+const app = ReactDOM.createRoot(document.getElementById("app"))
 
-const TestComponent = () => {
-  const [count, setCount] = useState(0)
-  const handleEvent = () => {
-    setCount(count + 1)
-  }
+const ModalWindow = () => {
+  const [isShow, setIsShow] = useState(true)
+  const toggleShow = () => setIsShow(!isShow)
+  console.log(isShow)
+
   return (
     <>
-      testUseState <br />
-      count: {count} <br />
-      <button onClick={handleEvent}>ボタン</button>
-      <ChildComponent handleClick={handleEvent} />
+      <button onClick={toggleShow}>画像を表示</button>
+      <div style={{ display: isShow ? "initial" : "none" }}>
+        <div className="modal__inner">
+          <img src="./image001.jpg" alt="画像" />
+          <div onClick={() => setIsShow(!isShow)} className="modal__close">
+            <i className="fas fa-times"></i>
+          </div>
+        </div>
+        <div onClick={() => setIsShow(!isShow)} className="modal__background"></div>
+      </div>
     </>
   )
 }
-const ChildComponent = props => {
-  return (
-    <>
-      child is . <br />
-      <button onClick={props.handleClick}>ぼたん</button>
-    </>
-  )
-}
-root.render(
-  <React.StrictMode>
-    <TestComponent />
-  </React.StrictMode>
-)
+
+app.render(<ModalWindow />)
