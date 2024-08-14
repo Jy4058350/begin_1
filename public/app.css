@@ -58,7 +58,7 @@
   opacity: 1;
 }
 .active-enter-active {
-  transition: opacity 0.5s;
+  transition: opacity 2.5s;
 }
 .active-leave {
   opacity: 1;
