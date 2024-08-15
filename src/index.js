@@ -8,7 +8,8 @@ const ContorollerForm = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    msg: "",
+    gender: "",
+    contact: "",
   })
 
   const handleSubmit = e => {
@@ -31,13 +32,28 @@ const ContorollerForm = () => {
             <label htmlFor="name">名前</label>
             <input id="name" type="text" name="name" value={form.name} onChange={handleChange} />
           </li>
+          <fieldset>
+            <legend>性別を選んでください</legend>
+            <li>
+              <label htmlFor="gender_male">男性</label>
+              <input id="gender_male" type="radio" name="gender" value="male" onChange={handleChange} />
+            </li>
+            <li>
+              <label htmlFor="gender_female">女性</label>
+              <input id="gender_female" type="radio" name="gender" value="female" onChange={handleChange} />
+            </li>
+            <li>
+              <label htmlFor="gender_other">その他</label>
+              <input id="gender_other" type="radio" name="gender" value="other" onChange={handleChange} />
+            </li>
+          </fieldset>
           <li>
             <label htmlFor="email">Eメール</label>
             <input id="email" type="email" name="email" value={form.email} onChange={handleChange} />
           </li>
           <li>
-            <label htmlFor="msg">メッセージ</label>
-            <textarea id="msg" name="msg" value={form.msg} onChange={handleChange}></textarea>
+            <label htmlFor="contact">メッセージ</label>
+            <textarea id="contact" name="contact" value={form.contact} onChange={handleChange}></textarea>
           </li>
         </ul>
         <button type="submit">メッセージを送信</button>
