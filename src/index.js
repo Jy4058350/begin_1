@@ -9,24 +9,56 @@ const ContorollerForm = () => {
     name: "",
     email: "",
     gender: "",
+    age: "",
     contact: "",
   })
 
   const handleSubmit = e => {
     e.preventDefault()
+    console.log(form)
   }
   const handleChange = e => {
     const { name, value } = e.target
-    console.log(name, value)
     setForm({
       ...form,
       [name]: value,
     })
   }
 
+  const ages = [
+    {
+      id: 0,
+      generation: "10代",
+    },
+    {
+      id: 1,
+      generation: "20代",
+    },
+    {
+      id: 2,
+      generation: "30代",
+    },
+    {
+      id: 3,
+      generation: "40代",
+    },
+    {
+      id: 4,
+      generation: "50代",
+    },
+    {
+      id: 5,
+      generation: "60代",
+    },
+    {
+      id: 6,
+      generation: "70代",
+    },
+  ]
+
   return (
     <>
-      <form onCSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <ul>
           <li>
             <label htmlFor="name">名前</label>
@@ -48,11 +80,22 @@ const ContorollerForm = () => {
             </li>
           </fieldset>
           <li>
+            <label htmlFor="age">年代</label>
+            <select id="age" name="age" value={form.age} onChange={handleChange}>
+              <option value="">選択してください</option>
+              {ages.map(age => (
+                <option key={age.id} value={age.id}>
+                  {age.generation}
+                </option>
+              ))}
+            </select>
+          </li>
+          <li>
             <label htmlFor="email">Eメール</label>
             <input id="email" type="email" name="email" value={form.email} onChange={handleChange} />
           </li>
           <li>
-            <label htmlFor="contact">メッセージ</label>
+            <label htmlFor="contact">コンタクト</label>
             <textarea id="contact" name="contact" value={form.contact} onChange={handleChange}></textarea>
           </li>
         </ul>
