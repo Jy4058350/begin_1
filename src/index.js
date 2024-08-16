@@ -8,7 +8,10 @@ const App = () => {
   const [text, setText] = useState("こんにちは")
 
   const handleChange = e => {
-    setText(e.target.value)
+    const value = e.target.value
+    //ここに三項演算子をつかって、valueが空文字の場合は「未入力」と表示するようにしてください
+
+    e.target.value ? setText(value) : setText("未入力")
   }
 
   return (
