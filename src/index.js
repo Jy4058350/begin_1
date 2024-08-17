@@ -23,7 +23,7 @@ const Counter = () => {
       >
         +3
       </button>
-      <button className="m-4 px-4 py-2 w-20   bg-gray-500 text-white rounded-md block" onClick={() => setAge(age + 1)}>
+      <button className="m-4 px-4 py-2 w-20   bg-gray-500 text-white rounded-md block" onClick={() => increment()}>
         +1
       </button>
     </>
