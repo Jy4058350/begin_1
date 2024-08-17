@@ -5,14 +5,14 @@ import "./styles.css"
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
 const Counter = () => {
-  const [count, setCount] = useState(42)
+  const [age, setAge] = useState(42)
 
   const increment = () => {
-    setCount(count + 1)
+    setAge(a => a + 1)
   }
   return (
     <>
-      <h1>Your age:{count}</h1>
+      <h1>Your age:{age}</h1>
       <button
         className="m-4 px-4 py-2 w-20 bg-gray-500 text-white rounded-md block"
         onClick={() => {
@@ -23,7 +23,7 @@ const Counter = () => {
       >
         +3
       </button>
-      <button className="m-4 px-4 py-2 w-20   bg-gray-500 text-white rounded-md block" onClick={() => setCount(count + 1)}>
+      <button className="m-4 px-4 py-2 w-20   bg-gray-500 text-white rounded-md block" onClick={() => setAge(age + 1)}>
         +1
       </button>
     </>
