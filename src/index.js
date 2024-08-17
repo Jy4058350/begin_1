@@ -4,18 +4,29 @@ import "./styles.css"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-const Checkbox = () => {
-  const [liked, setLiked] = useState(true)
-  const handleCheck = e => setLiked(e.target.checked)
+const MyForm = () => {
+  const [name, setName] = useState("You")
+  const handleName = e => {
+    setName(e.target.value)
+  }
+
+  const [age, setAge] = useState(42)
+  const handleClick = e => {
+    setAge(age + 1)
+  }
 
   return (
     <>
-      <label>
-        <input type="checkbox" checked={liked} onChange={handleCheck} /> I like this?
-      </label>
-      <p>You {liked ? "liked" : "dont liked"} this.</p>
+      <div className="m-8">
+        <input className=" mb-4 border border-gray-200" type="text" value={name} onChange={handleName} />
+        <p className="mb-4">
+          Hello {name} are {age}
+        </p>
+        <button className="bg-gray-300 text-white p-4 rounded-md" onClick={handleClick}>
+          Increment age
+        </button>
+      </div>
     </>
   )
 }
-
-root.render(<Checkbox />)
+root.render(<MyForm />)
