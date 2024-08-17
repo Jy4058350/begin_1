@@ -5,23 +5,30 @@ import "./styles.css"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-const MyForm = () => {
-  const [name, setName] = useState("You")
-
+const Counter = () => {
   const [age, setAge] = useState(42)
 
+  const increment = () => {
+    setAge(a => a + 1)
+  }
   return (
     <>
-      <div className="m-8">
-        <input className=" block mb-4 border border-gray-200" type="text" value={name} onChange={e => setName(e.target.value)} />
-        <button className="mb-4 bg-gray-300 text-white px-4 py-2 rounded-md" onClick={() => setAge(age + 1)}>
-          Increment age
-        </button>
-        <p className="">
-          Hello {name} are {age}
-        </p>
-      </div>
+      <h1>Your age:{age}</h1>
+      <button
+        className="m-4 px-4 py-2 w-20 bg-gray-500 text-white rounded-md block"
+        onClick={() => {
+          increment()
+          increment()
+          increment()
+        }}
+      >
+        +3
+      </button>
+      <button className="m-4 px-4 py-2 w-20   bg-gray-500 text-white rounded-md block" onClick={() => increment()}>
+        +1
+      </button>
     </>
   )
 }
-root.render(<MyForm />)
+
+root.render(<Counter />)
