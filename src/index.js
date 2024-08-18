@@ -4,30 +4,34 @@ import "./styles.css"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-const Counter = () => {
-  const [age, setAge] = useState(42)
-
-  const increment = () => {
-    setAge(a => a + 1)
-  }
+const MovingDot = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 })
   return (
-    <>
-      <h1>Your age:{age}</h1>
-      <button
-        className="m-4 px-4 py-2 w-20 bg-gray-500 text-white rounded-md block"
-        onClick={() => {
-          increment()
-          increment()
-          increment()
+    <div
+      onPointerMove={e => {
+        position.x = e.clientX
+        position.y = e.clientY
+      }}
+      style={{
+        position: "relative",
+        width: "100vw",
+        height: "100vh",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          backgroundColor: "red",
+          borderRadius: "50%",
+          transform: `translate(${position.x}px, ${position.y}px)`,
+          left: -10,
+          top: -10,
+          width: 20,
+          height: 20,
         }}
-      >
-        +3
-      </button>
-      <button className="m-4 px-4 py-2 w-20   bg-gray-500 text-white rounded-md block" onClick={() => increment()}>
-        +1
-      </button>
-    </>
+      />
+    </div>
   )
 }
 
-root.render(<Counter />)
+root.render(<MovingDot />)
