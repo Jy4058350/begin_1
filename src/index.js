@@ -6,13 +6,14 @@ const root = ReactDOM.createRoot(document.getElementById("root"))
 
 const MovingDot = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 })
+
   return (
     <div
       onPointerMove={e => {
-        setPosition({
-          x: e.clientX,
-          y: e.clientY,
-        })
+        const nextPosition = {}
+        nextPosition.x = e.clientX
+        nextPosition.y = e.clientY
+        setPosition(nextPosition)
       }}
       style={{
         position: "relative",
