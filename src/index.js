@@ -81,21 +81,21 @@ const initialPosition = {
   y: 0,
 }
 
-const Scoreboard = () => {
-  const [shape, setShape] = useState({
+const Canvas = () => {
+  const [shape, updateShape] = useImmer({
     color: "orange",
     position: initialPosition,
   })
 
   function handleMove(dx, dy) {
-    shape.position.x += dx
-    shape.position.y += dy
+    updateShape(draft => {
+      draft.position.x += dx
+      draft.position.y += dy
+    })
   }
-
   function handleColorChange(e) {
-    setShape({
-      ...shape,
-      color: e.target.value,
+    updateShape(draft => {
+      draft.color = e.target.value
     })
   }
 
@@ -114,4 +114,4 @@ const Scoreboard = () => {
   )
 }
 
-root.render(<Scoreboard />)
+root.render(<Canvas />)
