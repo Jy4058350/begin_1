@@ -11,38 +11,25 @@ const Form = () => {
     email: "test@test.com",
   })
 
-  const handlefirstNameChange = e => {
+  const handleChange = e => {
     setPerson({
       ...person,
-      ...person,
-      first: e.target.value,
-    })
-  }
-  const handleLastNameChange = e => {
-    setPerson({
-      ...person,
-      last: e.target.value,
-    })
-  }
-  const handleEmailChange = e => {
-    setPerson({
-      ...person,
-      email: e.target.value,
+      [e.target.name]: e.target.value,
     })
   }
   return (
     <div>
       <label className="block" htmlFor="name1">
         first person:
-        <input type="text" id="name1" person="first" value={person.first} onChange={handlefirstNameChange} />
+        <input type="text" id="name1" person="first" value={person.first} onChange={handleChange} />
       </label>
       <label className="block" htmlFor="name2">
         last person:
-        <input type="text" id="name2" person="last" value={person.last} onChange={handleLastNameChange} />
+        <input type="text" id="name2" person="last" value={person.last} onChange={handleChange} />
       </label>
       <label className="block" htmlFor="email">
         email:
-        <input type="email" id="email" person="email" value={person.email} onChange={handleEmailChange} />
+        <input type="email" id="email" person="email" value={person.email} onChange={handleChange} />
       </label>
 
       <div>
