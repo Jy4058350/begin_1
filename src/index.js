@@ -87,17 +87,13 @@ const Scoreboard = () => {
   })
 
   function handleMove(dx, dy) {
-    // shape.position.x += dx
-    // shape.position.y += dy
-    const newPosition = {
-      x: (shape.position.x += dx),
-      y: (shape.position.y += dy),
-    }
-    const newShape = {
+    setShape({
       ...shape,
-      position: newPosition,
-    }
-    setShape(newShape)
+      position: {
+        x: (shape.position.x += dx),
+        y: (shape.position.y += dy),
+      },
+    })
   }
 
   function handleColorChange(e) {
