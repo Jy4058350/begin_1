@@ -1,7 +1,10 @@
 import React from "react"
 import { useState } from "react"
+import { useImmer } from "use-immer"
 import ReactDOM from "react-dom/client"
 import "./styles.css"
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
 
 function Background({ position }) {
   return (
@@ -73,8 +76,6 @@ function Box({ children, color, position, onMove }) {
   )
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"))
-
 const initialPosition = {
   x: 0,
   y: 0,
@@ -87,13 +88,8 @@ const Scoreboard = () => {
   })
 
   function handleMove(dx, dy) {
-    setShape({
-      ...shape,
-      position: {
-        x: (shape.position.x += dx),
-        y: (shape.position.y += dy),
-      },
-    })
+    shape.position.x += dx
+    shape.position.y += dy
   }
 
   function handleColorChange(e) {
