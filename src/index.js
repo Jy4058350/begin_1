@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
+import { useImmer } from "use-immer"
 import ReactDOM from "react-dom/client"
 import "./styles.css"
 
@@ -6,7 +7,7 @@ import "./styles.css"
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
 const Form = () => {
-  const [person, setPerson] = useState({
+  const [person, updatePerson] = useImmer({
     name: "Niki de Saint Phalle",
     artwork: {
       title: "Blue Nana",
@@ -15,43 +16,30 @@ const Form = () => {
     },
   })
 
-  const handleChange1 = e => {
-    e.target.name = e.target.value
-    setPerson({
-      ...person,
-      name: e.target.name,
+  function handleChange1(e) {
+    updatePerson(draft => {
+      draft.name = e.target.value
     })
   }
 
-  const handleChange2 = e => {
-    setPerson({
-      ...person,
-      artwork: {
-        ...person.artwork,
-        title: e.target.value,
-      },
+  function handleChange2(e) {
+    updatePerson(draft => {
+      draft.artwork.title = e.target.value
     })
   }
 
-  const handleChange3 = e => {
-    setPerson({
-      ...person,
-      artwork: {
-        ...person.artwork,
-        city: e.target.value,
-      },
+  function handleChange3(e) {
+    updatePerson(draft => {
+      draft.artwork.city = e.target.value
     })
   }
 
-  const handleChange4 = e => {
-    setPerson({
-      ...person,
-      artwork: {
-        ...person.artwork,
-        image: e.target.value,
-      },
+  function handleChange4(e) {
+    updatePerson(draft => {
+      draft.artwork.image = e.target.value
     })
   }
+
   return (
     <>
       <label className="block mb-4">
@@ -71,7 +59,7 @@ const Form = () => {
         <input className="ml-4 border-2 border-gray-500 text-xs" name="image" value={person.artwork.image} onChange={handleChange4} />
       </label>
       {person.artwork.title} By {person.name} (located in {person.artwork.city})
-      <img className="mt-4 w-48" src={person.artwork.image} alt="" />
+      <img className="mt-4 w-48" src={person.artwork.image} alt={person.artwork.title} />
     </>
   )
 }
