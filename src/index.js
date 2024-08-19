@@ -13,22 +13,19 @@ const Form = () => {
 
   const handlefirstNameChange = e => {
     setName({
+      ...name,
       first: e.target.value,
-      last: name.last,
-      email: name.email,
     })
   }
   const handleLastNameChange = e => {
     setName({
-      first: name.first,
+      ...name,
       last: e.target.value,
-      emai: name.email,
     })
   }
   const handleEmailChange = e => {
     setName({
-      first: name.first,
-      last: name.last,
+      ...name,
       email: e.target.value,
     })
   }
