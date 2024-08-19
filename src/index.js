@@ -23,42 +23,33 @@ const Form = () => {
   }
 
   const handleChange2 = e => {
-    e.target.name = e.target.value
-    const newArtwork = {
-      ...person.artwork,
-      title: e.target.name,
-    }
-    const newPerson = {
+    setPerson({
       ...person,
-      artwork: newArtwork,
-    }
-    setPerson(newPerson)
+      artwork: {
+        ...person.artwork,
+        title: e.target.value,
+      },
+    })
   }
 
   const handleChange3 = e => {
-    e.target.name = e.target.value
-    const newArtwork = {
-      ...person.artwork,
-      city: e.target.name,
-    }
-    const newPerson = {
+    setPerson({
       ...person,
-      artwork: newArtwork,
-    }
-    setPerson(newPerson)
+      artwork: {
+        ...person.artwork,
+        city: e.target.value,
+      },
+    })
   }
 
   const handleChange4 = e => {
-    e.target.name = e.target.value
-    const newArtwork = {
-      ...person.artwork,
-      image: e.target.name,
-    }
-    const newPerson = {
+    setPerson({
       ...person,
-      artwork: newArtwork,
-    }
-    setPerson(newPerson)
+      artwork: {
+        ...person.artwork,
+        image: e.target.value,
+      },
+    })
   }
   return (
     <>
