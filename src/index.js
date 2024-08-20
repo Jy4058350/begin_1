@@ -13,10 +13,23 @@ const shapeList = [
 ]
 const ShapeEditor = () => {
   const [shapes, setShapes] = useState(shapeList)
-  const handleClick = () => {}
+
+  const handleClick = () => {
+    const nextShapes = shapes.map(shape => {
+      if (shape.type === "squere") {
+        return shape
+      } else {
+        return {
+          ...shape,
+          y: shape.y + 50,
+        }
+      }
+    })
+    setShapes(nextShapes)
+  }
   return (
     <div>
-      <button onClick={() => handleClick}>Move circles down!</button>
+      <button onClick={handleClick}>Move circles down!</button>
       {shapes.map(shape => (
         <div
           key={shape.id}
