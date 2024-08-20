@@ -15,9 +15,9 @@ let initialArtists = [
 const List = () => {
   const [artists, setArtists] = useState(initialArtists)
 
-  const handleClick = artist => {
-    setArtists(artists.filter(a => a.id !== artist.id))
-  }
+  // const handleClick = artist => {
+  //   setArtists(artists.filter(a => a.id !== artist.id))
+  // }
 
   return (
     <div className="text-2xl font-semibold mx-4 my-4">
@@ -28,7 +28,7 @@ const List = () => {
             {artist.name}
             <button
               className="ml-4 px-2 py-1 bg-gray-200 text-xs text-black font-light border-2 border-gray-500 rounded-md"
-              onClick={() => handleClick(artist)}
+              onClick={() => setArtists(artists.filter(a => a.id ! == artist.id))}
             >
               Delete
             </button>
