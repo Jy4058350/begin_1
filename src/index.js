@@ -28,7 +28,7 @@ const List = () => {
             {artist.name}
             <button
               className="ml-4 px-2 py-1 bg-gray-200 text-xs text-black font-light border-2 border-gray-500 rounded-md"
-              onClick={() => setArtists(artists.filter(a => a.id ! == artist.id))}
+              onClick={() => setArtists(artists.filter(a => a.id !== artist.id))}
             >
               Delete
             </button>
