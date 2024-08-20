@@ -5,34 +5,34 @@ import ReactDOM from "react-dom/client"
 import "./styles.css"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-let nextId = 0
-const List = () => {
-  const [name, setName] = useState("")
-  const [artists, setArtists] = useState([])
 
-  const handleChange = e => {
-    setName(e.target.value)
+let initialArtists = [
+  { id: 0, name: "Marta Colvin Andrade" },
+  { id: 1, name: "Lamidi Olonade Fakeye" },
+  { id: 2, name: "Louise Nevelson" },
+]
+
+const List = () => {
+  const [artists, setArtists] = useState(initialArtists)
+
+  const handleClick = artist => {
+    setArtists(artists.filter(a => a.id !== artist.id))
   }
-  const handleClick = () => {
-    setArtists(
-      // Replace the state
-      [
-        // with a new array
-        { id: nextId++, name: name }, // and one new item at the end
-        ...artists, // that contains all the previous artists
-      ]
-    )
-  }
+
   return (
     <div className="text-2xl font-semibold mx-4 my-4">
-      Inspiring sculptors:""
-      <input className="inline-block border text-xs my-4" name="name" value={name} onChange={handleChange} />
-      <button className=" bg-gray-400 text-black text-sm px-4 py-2 rounded-md" onClick={handleClick}>
-        Add
-      </button>
+      Inspiring sculptors:
       <ul>
-        {artists.map(artist => (
-          <li key={artist.id}>{artist.name}</li>
+        {initialArtists.map(artist => (
+          <li className="mt-0 text-lg font-normal" key={artist.id}>
+            {artist.name}
+            <button
+              className="ml-4 px-2 py-1 bg-gray-200 text-xs text-black font-light border-2 border-gray-500 rounded-md"
+              onClick={() => handleClick(artist)}
+            >
+              Delete
+            </button>
+          </li>
         ))}
       </ul>
     </div>
