@@ -18,14 +18,14 @@ const List = () => {
       // Replace the state
       [
         // with a new array
-        ...artists, // that contains all the previous artists
         { id: nextId++, name: name }, // and one new item at the end
+        ...artists, // that contains all the previous artists
       ]
     )
   }
   return (
     <div className="text-2xl font-semibold mx-4 my-4">
-      Inspiring sculptors:
+      Inspiring sculptors:""
       <input className="inline-block border text-xs my-4" name="name" value={name} onChange={handleChange} />
       <button className=" bg-gray-400 text-black text-sm px-4 py-2 rounded-md" onClick={handleClick}>
         Add
