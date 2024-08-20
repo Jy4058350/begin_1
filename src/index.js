@@ -23,7 +23,7 @@ const List = () => {
     <div className="text-2xl font-semibold mx-4 my-4">
       Inspiring sculptors:
       <ul>
-        {initialArtists.map(artist => (
+        {artists.map(artist => (
           <li className="mt-0 text-lg font-normal" key={artist.id}>
             {artist.name}
             <button
