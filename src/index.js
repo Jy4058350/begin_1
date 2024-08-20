@@ -14,10 +14,14 @@ const List = () => {
     setName(e.target.value)
   }
   const handleClick = () => {
-    artists.push({
-      id: nextId++,
-      name: name,
-    })
+    setArtists(
+      // Replace the state
+      [
+        // with a new array
+        ...artists, // that contains all the previous artists
+        { id: nextId++, name: name }, // and one new item at the end
+      ]
+    )
   }
   return (
     <div className="text-2xl font-semibold mx-4 my-4">
@@ -27,9 +31,9 @@ const List = () => {
         Add
       </button>
       <ul>
-        {artists.map(artist => {
-          return <li key={artist.id}>{artist.name}</li>
-        })}
+        {artists.map(artist => (
+          <li key={artist.id}>{artist.name}</li>
+        ))}
       </ul>
     </div>
   )
