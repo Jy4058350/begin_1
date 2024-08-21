@@ -13,11 +13,9 @@ const initialList = [
 ]
 const List = () => {
   const [arts, setArts] = useState(initialList)
-  let i = 2
-  const handleChange = (i) => {
-    arts.id == i ? checked : null
-    }
-  }
+
+  const handleChange = i => {}
+
   return (
     <div className="m-4">
       <h1 className="mb-2 text-2xl font-bold">Art Bucket List</h1>
