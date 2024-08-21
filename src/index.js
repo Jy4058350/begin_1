@@ -5,29 +5,31 @@ import ReactDOM from "react-dom/client"
 import "./styles.css"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-const counters = [
-  { id: 0, count: 0 },
-  { id: 1, count: 0 },
-  { id: 2, count: 0 },
-]
+const initialCounters = [0, 0, 0]
 const CounterList = () => {
-  const [count, setCount] = useState(counters)
-  const handleClick = () => {
-    counters.map(counter => {
-     (c)=>c.id ? count.id :setCount(count + 1):null
+  const [counters, setCounters] = useState(initialCounters)
+
+  const handleClick = index => {
+    const nextCounters = counters.map((c, i) => {
+      if (i === index) {
+        return c + 1
+      } else {
+        return c
+      }
     })
+    setCounters(nextCounters)
   }
   return (
-    <div>
-      {counters.map(counter => (
-        <div className="m-4 text-lg" key={counter.id}>
-          {counter.count}
-          <button className="ml-2 bg-gray-300 text-gray-700 px-2 text-sm border border-gray-500 rounded-sm " onClick={handleClick}>
+    <ul>
+      {counters.map((counter, i) => (
+        <li className="m-4 text-lg" key={i}>
+          {counter}
+          <button className="ml-2 bg-gray-300 text-gray-700 px-2 text-sm border border-gray-500 rounded-sm " onClick={() => handleClick(i)}>
             +1
           </button>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
 
