@@ -22,8 +22,8 @@ const List = () => {
 
   const handleClick = () => {
     let nextList = [...list]
-    const reverseList = nextList.reverse()
-    setList(reverseList)
+    nextList.reverse()
+    setList(nextList)
   }
 
   return (
