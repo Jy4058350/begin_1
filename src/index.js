@@ -15,7 +15,9 @@ const List = () => {
   const [myList, setMyList] = useState(initialList)
   const [yourList, setYourList] = useState(initialList)
 
-  const handleChange = i => {}
+  const handleToggleMyList = () => {}
+
+  const handleToggleYourList = () => {}
 
   return (
     <div className="m-4">
@@ -27,7 +29,7 @@ const List = () => {
       {/* {myList.map((art, i) => {
           return (
             <div key={art.id}>
-              <input type="checkbox" name={art.title} onChange={handleChange} className="mb-2 text-xs font-normal" />
+              <input type="checkbox" name={art.title} onChange={handleToggleMyList} className="mb-2 text-xs font-normal" />
               <label>{art.title}</label>
             </div>
           )
@@ -49,14 +51,14 @@ const List = () => {
   )
 }
 
-const ItemList = (myList, handleChange) => {
+const ItemList = (myList, handleToggleMyList) => {
   console.log(myList)
   return (
     <ul>
       {/* {myList.map(art => {
         return (
           <div key={art.id}>
-            <input type="checkbox" name={art.title} onChange={handleChange} className="mb-2 text-xs font-normal" />
+            <input type="checkbox" name={art.title} onChange={handleToggleMyList} className="mb-2 text-xs font-normal" />
             <label>{art.title}</label>
           </div>
         )
