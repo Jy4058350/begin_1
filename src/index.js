@@ -19,9 +19,21 @@ const initialList = [
 ]
 const List = () => {
   const [names, setNames] = useState(initialList)
+
+  let copyList = []
+  copyList = [...names]
+  console.log(copyList)
+
+  const handleClick = () => {
+    const reverseList = copyList.reverse()
+    setNames(reverseList)
+  }
+
   return (
     <div>
-      <button className="m-4 bg-gray-300 text-gray-800 px-2 border border-gray-800 text-sm rounded-md">Reverse</button>
+      <button className="m-4 bg-gray-300 text-gray-800 px-2 border border-gray-800 text-sm rounded-md" onClick={handleClick}>
+        Reverse
+      </button>
       <ul>
         {names.map(name => (
           <li className="ml-4 text-xl font-light" key={name.id}>
