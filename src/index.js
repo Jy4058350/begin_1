@@ -12,30 +12,29 @@ const initialArtists = [
   { id: 2, name: "Louise Nevelson" },
 ]
 const List = () => {
+  const [name, setName] = useState("")
   const [artists, setArtists] = useState(initialArtists)
-  const [newArtists, setNewArtists] = useState("")
-  const handleChange = e => {
-    setNewArtists(e.target.value)
-  }
+  // const handleChange = e => {
+  //   setName(e.target.value)
+  // }
   const handleClick = () => {
     const insertAt = 1
     const newList = [
       ...artists.slice(0, insertAt),
       {
         id: nextId++,
-        name: newArtists,
+        name: name,
       },
       ...artists.slice(insertAt),
     ]
-    console.log(newList)
     setArtists(newList)
-    setNewArtists("")
+    setName("")
   }
 
   return (
     <div className="text-2xl font-semibold">
       Inspiring sculptors:
-      <input className="mt-2 border-2 text-sm border-gray-300" value={newArtists} onChange={handleChange}></input>
+      <input className="mt-2 border-2 text-sm border-gray-300" value={name} onChange={e => setName(e.target.value)}></input>
       <button className="ml-2 bg-gray-400 text-gray-600 px-2 border-2 border-gray-600 font-light rounded-md text-sm" onClick={handleClick}>
         Insert
       </button>
