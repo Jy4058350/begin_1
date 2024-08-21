@@ -32,9 +32,9 @@ const List = () => {
         Reverse
       </button>
       <ul>
-        {list.map(title => (
-          <li className="ml-4 text-xl font-light" key={title.id}>
-            {title.title}
+        {list.map(artwork => (
+          <li className="ml-4 text-xl font-light" key={artwork.id}>
+            {artwork.title}
           </li>
         ))}
       </ul>
