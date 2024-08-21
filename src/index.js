@@ -7,36 +7,39 @@ import "./styles.css"
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
 const initialList = [
-  {
-    id: 0,
-    title: "Big Bellies",
-  },
+  { id: 0, title: "Big Bellies" },
   { id: 1, title: "Lunar Landscape" },
-  {
-    id: 2,
-    title: "Terracotta Army",
-  },
+  { id: 2, title: "Terracotta Army" },
 ]
 const List = () => {
-  const [list, setList] = useState(initialList)
-
-  const handleClick = () => {
-    let nextList = [...list]
-    nextList.reverse()
-    setList(nextList)
-  }
-
+  const [arts, setArts] = useState(initialList)
+  const [arts2, setArts2] = useState(initialList)
   return (
-    <div>
-      <button className="m-4 bg-gray-300 text-gray-800 px-2 border border-gray-800 text-sm rounded-md" onClick={handleClick}>
-        Reverse
-      </button>
+    <div className="m-4">
+      <h1 className="mb-2 text-2xl font-bold">Art Bucket List</h1>
+
+      <h2 className="mb-2 text-xl font-normal">My list of art to see:</h2>
       <ul>
-        {list.map(artwork => (
-          <li className="ml-4 text-xl font-light" key={artwork.id}>
-            {artwork.title}
-          </li>
-        ))}
+        {arts.map(art => {
+          return (
+            <div key={art.id}>
+              <input type="checkbox" className="mb-2 text-xs font-normal" />
+              <label>{art.title}</label>
+            </div>
+          )
+        })}
+      </ul>
+
+      <h2 className="mb-2 text-xl font-normal">Your list of art to see:</h2>
+      <ul>
+        {arts2.map(art => {
+          return (
+            <div key={art.id}>
+              <input type="checkbox" className="mb-2 text-xs font-normal" />
+              <label>{art.title}</label>
+            </div>
+          )
+        })}
       </ul>
     </div>
   )
