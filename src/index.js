@@ -18,15 +18,18 @@ const List = () => {
     setNewArtists(e.target.value)
   }
   const handleClick = () => {
+    const insertAt = 1
     const newList = [
-      ...artists,
+      ...artists.slice(0, insertAt),
       {
         id: nextId++,
         name: newArtists,
       },
+      ...artists.slice(insertAt),
     ]
     console.log(newList)
     setArtists(newList)
+    setNewArtists("")
   }
 
   return (
