@@ -13,17 +13,21 @@ const initialList = [
 ]
 const List = () => {
   const [arts, setArts] = useState(initialList)
-  const [arts2, setArts2] = useState(initialList)
+  let i = 2
+  const handleChange = (i) => {
+    arts.id == i ? checked : null
+    }
+  }
   return (
     <div className="m-4">
       <h1 className="mb-2 text-2xl font-bold">Art Bucket List</h1>
 
       <h2 className="mb-2 text-xl font-normal">My list of art to see:</h2>
       <ul>
-        {arts.map(art => {
+        {arts.map((art, i) => {
           return (
             <div key={art.id}>
-              <input type="checkbox" className="mb-2 text-xs font-normal" />
+              <input type="checkbox" name={art.title} onChange={handleChange} className="mb-2 text-xs font-normal" />
               <label>{art.title}</label>
             </div>
           )
@@ -32,7 +36,7 @@ const List = () => {
 
       <h2 className="mb-2 text-xl font-normal">Your list of art to see:</h2>
       <ul>
-        {arts2.map(art => {
+        {arts.map(art => {
           return (
             <div key={art.id}>
               <input type="checkbox" className="mb-2 text-xs font-normal" />
