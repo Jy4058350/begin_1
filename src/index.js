@@ -4,6 +4,7 @@ import { useImmer } from "use-immer"
 import ReactDOM from "react-dom/client"
 import "./styles.css"
 
+let nextId = 3
 const root = ReactDOM.createRoot(document.getElementById("root"))
 const initialArtists = [
   { id: 0, name: "Marta Colvin Andrade" },
@@ -17,10 +18,14 @@ const List = () => {
     setNewArtists(e.target.value)
   }
   const handleClick = () => {
-    const newList = {
-      ...newArtists,
-      artists,
-    }
+    const newList = [
+      ...artists,
+      {
+        id: nextId++,
+        name: newArtists,
+      },
+    ]
+    console.log(newList)
     setArtists(newList)
   }
 
