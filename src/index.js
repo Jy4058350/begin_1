@@ -9,24 +9,21 @@ const root = ReactDOM.createRoot(document.getElementById("root"))
 const initialList = [
   {
     id: 0,
-    name: "Big Bellies",
+    title: "Big Bellies",
   },
-  { id: 1, name: "Lunar Landscape" },
+  { id: 1, title: "Lunar Landscape" },
   {
     id: 2,
-    name: "Terracotta Army",
+    title: "Terracotta Army",
   },
 ]
 const List = () => {
-  const [names, setNames] = useState(initialList)
-
-  let copyList = []
-  copyList = [...names]
-  console.log(copyList)
+  const [list, setList] = useState(initialList)
 
   const handleClick = () => {
-    const reverseList = copyList.reverse()
-    setNames(reverseList)
+    let nextList = [...list]
+    const reverseList = nextList.reverse()
+    setList(reverseList)
   }
 
   return (
@@ -35,9 +32,9 @@ const List = () => {
         Reverse
       </button>
       <ul>
-        {names.map(name => (
-          <li className="ml-4 text-xl font-light" key={name.id}>
-            {name.name}
+        {list.map(title => (
+          <li className="ml-4 text-xl font-light" key={title.id}>
+            {title.title}
           </li>
         ))}
       </ul>
