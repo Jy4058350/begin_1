@@ -16,12 +16,21 @@ const List = () => {
   const handleChange = e => {
     setNewArtists(e.target.value)
   }
+  const handleClick = () => {
+    const newList = {
+      ...newArtists,
+      artists,
+    }
+    setArtists(newList)
+  }
 
   return (
     <div className="text-2xl font-semibold">
       Inspiring sculptors:
       <input className="mt-2 border-2 text-sm border-gray-300" value={newArtists} onChange={handleChange}></input>
-      <button className="ml-2 bg-gray-400 text-gray-600 px-2 border-2 border-gray-600 font-light rounded-md text-sm">Insert</button>
+      <button className="ml-2 bg-gray-400 text-gray-600 px-2 border-2 border-gray-600 font-light rounded-md text-sm" onClick={handleClick}>
+        Insert
+      </button>
       <ul className="mt-4 text-md text-lg font-light text-gray-700">
         {artists.map(artist => (
           <li key={artist.id}>{artist.name}</li>
