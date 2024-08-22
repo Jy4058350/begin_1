@@ -3,3 +3,31 @@ import { useState } from "react"
 import { useImmer } from "use-immer"
 import ReactDOM from "react-dom/client"
 import "./styles.css"
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
+
+const cartList = [
+  { id: 0, name: "Baklava", init: 1 },
+  { id: 1, name: "Cheese", init: 5 },
+  { id: 2, name: "Spaghetti", init: 2 },
+]
+const Cart = () => {
+  const [products, setProducts] = useState(cartList)
+  return (
+    <ul className="m-4">
+      {products.map(product => (
+        <li key={product.id} className="mb-2">
+          {product.name}
+          <span className="ml-2">(</span>
+          <span key={product.id} className="font-bold">
+            {product.init}
+          </span>
+          <span>)</span>
+          <button className="bg-gray-300 text-gray-700 rounded-sm font-xs px-2 border border-gray-400 ml-4">+</button>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+root.render(<Cart />)
