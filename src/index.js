@@ -15,9 +15,9 @@ const List = () => {
   const [myList, setMyList] = useState(initialList)
   const [yourList, setYourList] = useState(initialList)
 
-  const handleToggleMyList = () => {
+  const handleToggleMyList = (artworkId, nextSeen) => {
     const myNextList = [...myList]
-    const artwork = myNextList.find()
+    const artwork = myNextList.find(a => a.id === artwork)
   }
 
   const handleToggleYourList = () => {}
