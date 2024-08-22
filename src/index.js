@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client"
-import Gallery from "./App.js"
+import App from "./App.js"
 
-const root = ReactDOM.createRoot(document.getElementById("root"))
+const app = ReactDOM.createRoot(document.getElementById("app"))
 
-root.render(<Gallery />)
+app.render(<App />)
