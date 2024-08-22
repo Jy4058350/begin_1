@@ -18,8 +18,6 @@ const Cart = () => {
     setProducts(
       products.map(product => {
         if (product.id === productId) {
-          // const increaseCount = product.count + 1
-          // console.log(increaseCount)
           return { ...product, count: product.count + 1 }
         } else {
           return product
@@ -27,6 +25,8 @@ const Cart = () => {
       })
     )
   }
+
+  const handleDecreaseClick = () => {}
 
   return (
     <ul className="m-4">
@@ -40,6 +40,9 @@ const Cart = () => {
           <span>)</span>
           <button onClick={() => handleIncreaseClick(product.id)} className="bg-gray-300 text-gray-700 rounded-sm font-xs px-2 border border-gray-400 ml-4">
             +
+          </button>
+          <button onClick={() => handleDecreaseClick(product.id)} className="bg-gray-300 text-gray-700 rounded-sm font-xs px-2 border border-gray-400 ml-4">
+            -
           </button>
         </li>
       ))}
