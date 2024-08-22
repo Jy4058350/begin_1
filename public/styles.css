@@ -553,6 +553,10 @@ video {
   margin: 1rem;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -565,10 +569,45 @@ video {
   margin-top: 5rem;
 }
 
+.flex {
+  display: flex;
+}
+
 .w-40 {
   width: 10rem;
 }
 
+.w-10 {
+  width: 2.5rem;
+}
+
+.w-20 {
+  width: 5rem;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
 .p-4 {
   padding: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.font-bold {
+  font-weight: 700;
 }
