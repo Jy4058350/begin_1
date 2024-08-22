@@ -6,13 +6,28 @@ import "./styles.css"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-const cartList = [
-  { id: 0, name: "Baklava", init: 1 },
-  { id: 1, name: "Cheese", init: 5 },
-  { id: 2, name: "Spaghetti", init: 2 },
+const initialProducts = [
+  { id: 0, name: "Baklava", count: 1 },
+  { id: 1, name: "Cheese", count: 5 },
+  { id: 2, name: "Spaghetti", count: 2 },
 ]
 const Cart = () => {
-  const [products, setProducts] = useState(cartList)
+  const [products, setProducts] = useState(initialProducts)
+
+  const handleIncreaseClick = productId => {
+    setProducts(
+      products.map(product => {
+        if (product.id === productId) {
+          // const increaseCount = product.count + 1
+          // console.log(increaseCount)
+          return { ...product, count: product.count + 1 }
+        } else {
+          return product
+        }
+      })
+    )
+  }
+
   return (
     <ul className="m-4">
       {products.map(product => (
@@ -20,10 +35,12 @@ const Cart = () => {
           {product.name}
           <span className="ml-2">(</span>
           <span key={product.id} className="font-bold">
-            {product.init}
+            {product.count}
           </span>
           <span>)</span>
-          <button className="bg-gray-300 text-gray-700 rounded-sm font-xs px-2 border border-gray-400 ml-4">+</button>
+          <button onClick={() => handleIncreaseClick(product.id)} className="bg-gray-300 text-gray-700 rounded-sm font-xs px-2 border border-gray-400 ml-4">
+            +
+          </button>
         </li>
       ))}
     </ul>
