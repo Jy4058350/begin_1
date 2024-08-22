@@ -17,7 +17,9 @@ const List = () => {
 
   const handleToggleMyList = (artworkId, nextSeen) => {
     const myNextList = [...myList]
-    const artwork = myNextList.find(a => a.id === artwork)
+    const artwork = myNextList.find(a => a.id === artworkId)
+    artwork.seen = nextSeen
+    setMyList(myNextList)
   }
 
   const handleToggleYourList = () => {}
