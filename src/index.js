@@ -12,31 +12,21 @@ const initialList = [
   { id: 2, title: "Terracotta Army", seen: true },
 ]
 const List = () => {
-  const [myList, setMyList] = useImmer(initialList)
-  const [yourList, setYourList] = useImmer(initialList)
+  const [myList, updateMyList] = useImmer(initialList)
+  const [yourList, updateYourList] = useImmer(initialList)
 
-  const handleToggleMyList = (artworkId, nextSeen) => {
-    setMyList(
-      myList.map(artwork => {
-        if (artwork.id === artworkId) {
-          return { ...artwork, seen: nextSeen }
-        } else {
-          return artwork
-        }
-      })
-    )
+  const handleToggleMyList = (id, nextSeen) => {
+    updateMyList(draft => {
+      const artwork = draft.find(a => a.id === id)
+      artwork.seen = nextSeen
+    })
   }
 
-  const handleToggleYourList = (artworkId, nextSeen) => {
-    setYourList(
-      yourList.map(artwork => {
-        if (artwork.id === artworkId) {
-          return { ...artwork, seen: nextSeen }
-        } else {
-          return artwork
-        }
-      })
-    )
+  const handleToggleYourList = (id, nextSeen) => {
+    updateYourList(draft => {
+      const artwork = draft.find(a => a.id === id)
+      artwork.seen = nextSeen
+    })
   }
 
   return (
