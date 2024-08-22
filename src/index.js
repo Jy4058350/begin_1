@@ -34,7 +34,10 @@ const ItemList = ({ artworks }) => {
   return (
     <ul className="mt-4">
       {artworks.map(artwork => (
-        <li key={artwork.id}>{artwork.title}</li>
+        <li key={artwork.id}>
+          <input type="checkbox" checked={artwork.seen} className="m-2" />
+          {artwork.title}
+        </li>
       ))}
     </ul>
   )
