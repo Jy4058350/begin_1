@@ -15,7 +15,10 @@ const List = () => {
   const [myList, setMyList] = useState(initialList)
   const [yourList, setYourList] = useState(initialList)
 
-  const handleToggleMyList = () => {}
+  const handleToggleMyList = () => {
+    const myNextList = [...myList]
+    const artwork = myNextList.find()
+  }
 
   const handleToggleYourList = () => {}
 
@@ -23,19 +26,19 @@ const List = () => {
     <div className="m-4">
       <h1 className="mb-2 text-2xl font-bold">Art Bucket List</h1>
       <h2 className="mb-2 text-xl font-normal">My list of art to see:</h2>
-      <ItemList artworks={myList} toggle={handleToggleMyList} />
+      <ItemList artworks={myList} onToggle={handleToggleMyList} />
       <h2 className="mt-4 mb-2 text-xl font-normal">Your list of art to see:</h2>
-      <ItemList artworks={yourList} toggle={handleToggleYourList} />
+      <ItemList artworks={yourList} onToggle={handleToggleYourList} />
     </div>
   )
 }
 
-const ItemList = ({ artworks, toggle }) => {
+const ItemList = ({ artworks, onToggle }) => {
   return (
     <ul className="mt-4">
       {artworks.map(artwork => (
         <li key={artwork.id}>
-          <input type="checkbox" checked={artwork.seen} onChange={toggle} className="m-2" />
+          <input type="checkbox" checked={artwork.seen} onChange={e => onToggle(artwork.id, e.target.checked)} className="m-2" />
           {artwork.title}
         </li>
       ))}
