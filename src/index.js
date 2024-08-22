@@ -13,7 +13,6 @@ const initialList = [
 ]
 const List = () => {
   const [myList, setMyList] = useState(initialList)
-  console.log("myList", myList)
   const [yourList, setYourList] = useState(initialList)
 
   const handleToggleMyList = () => {}
@@ -25,16 +24,15 @@ const List = () => {
       <h1 className="mb-2 text-2xl font-bold">Art Bucket List</h1>
       <h2 className="mb-2 text-xl font-normal">My list of art to see:</h2>
       <ItemList artworks={myList} />
-      <h2 className="mb-2 text-xl font-normal">Your list of art to see:</h2>
-      {/* <ItemList /> */}
+      <h2 className="mt-4 mb-2 text-xl font-normal">Your list of art to see:</h2>
+      <ItemList artworks={yourList} />
     </div>
   )
 }
 
 const ItemList = ({ artworks }) => {
-  console.log(artworks)
   return (
-    <ul>
+    <ul className="mt-4">
       {artworks.map(artwork => (
         <li key={artwork.id}>{artwork.title}</li>
       ))}
