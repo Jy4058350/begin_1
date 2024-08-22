@@ -12,8 +12,8 @@ const initialList = [
   { id: 2, title: "Terracotta Army", seen: true },
 ]
 const List = () => {
-  const [myList, setMyList] = useState(initialList)
-  const [yourList, setYourList] = useState(initialList)
+  const [myList, setMyList] = useImmer(initialList)
+  const [yourList, setYourList] = useImmer(initialList)
 
   const handleToggleMyList = (artworkId, nextSeen) => {
     setMyList(
