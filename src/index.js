@@ -26,16 +26,27 @@ const Cart = () => {
     )
   }
 
-  const handleDecreaseClick = productId => {
-    setProducts(
-      products.map(product => {
-        if (productId === product.id) {
-          return { ...product, count: product.count - 1 }
-        } else {
-          return product
-        }
-      })
-    )
+  const handleDecreaseClick = (productId, productCount) => {
+    if (productCount !== 1) {
+      setProducts(
+        products.map(product => {
+          if (productId === product.id) {
+            return { ...product, count: product.count - 1 }
+          } else {
+            return product
+          }
+        })
+      )
+    }
+    if (productCount === 1) {
+      setProducts(
+        products.map(product => {
+          if (productId === product.id) {
+            return { ...product, id: null }
+          }
+        })
+      )
+    }
   }
 
   return (
@@ -51,7 +62,10 @@ const Cart = () => {
           <button onClick={() => handleIncreaseClick(product.id)} className="bg-gray-300 text-gray-700 rounded-sm font-xs px-2 border border-gray-400 ml-4">
             +
           </button>
-          <button onClick={() => handleDecreaseClick(product.id)} className="bg-gray-300 text-gray-700 rounded-sm font-xs px-2 border border-gray-400 ml-2">
+          <button
+            onClick={() => handleDecreaseClick(product.id, product.count)}
+            className="bg-gray-300 text-gray-700 rounded-sm font-xs px-2 border border-gray-400 ml-2"
+          >
             -
           </button>
         </li>
