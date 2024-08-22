@@ -1,17 +1,19 @@
-export default function Bio() {
+export default function App() {
   return (
     <>
-      <div className="intro">
-        <h1>Welcome to my website!</h1>
-      </div>
-      <p className="summary">
-        You can find my thoughts here.
-        <br></br>
-        <b>
-          And <i>pictures</i>
-        </b>{" "}
-        of scientists!
-      </p>
+      <Avatar />
+    </>
+  )
+}
+
+function Avatar() {
+  return (
+    <>
+      <img
+        className="avatar"
+        src="https://i.imgur.com/7vQD0fPs.jpg"
+        alt="Gregorio Y. Zara"
+      ></img>
     </>
   )
 }
