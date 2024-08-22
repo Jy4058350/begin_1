@@ -22,7 +22,12 @@ const List = () => {
     setMyList(myNextList)
   }
 
-  const handleToggleYourList = () => {}
+  const handleToggleYourList = (artworkId, nextSeen) => {
+    const yourNextList = [...yourList]
+    const artwork = yourNextList.find(a => a.id === artworkId)
+    artwork.seen = nextSeen
+    setMyList(yourNextList)
+  }
 
   return (
     <div className="m-4">
