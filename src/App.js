@@ -12,17 +12,15 @@ const person = {
     backgroundColor: "black",
     color: "pink",
   },
+  imgUrl: "https://i.imgur.com/7vQD0fPs.jpg",
+  description: "Gregorio Y. Zara",
 }
 
 function TodoList() {
   return (
     <div style={person.theme}>
       <h1>{person.name}'s Todos</h1>
-      <imgs
-        className="avatar"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
-        alt="Gregorio Y. Zara"
-      />
+      <img className="avatar" src={person.imgUrl} alt={person.description} />
       <ul>
         <li>Improve the videophone</li>
         <li>Prepare aeronautics lectures</li>
