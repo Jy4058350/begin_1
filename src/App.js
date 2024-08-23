@@ -1,17 +1,21 @@
 export default function App() {
   return (
     <>
-      <Avatar />
+      <ToDoList />
     </>
   )
 }
 
-function Avatar() {
-  const avator = "https://i.imgur.com/7vQD0fPs.jpg"
-  const description = "Gregorio Y. Zara"
-  return (
-    <>
-      <img className="avatar" src={avator} alt={description}></img>
-    </>
-  )
+const today = new Date()
+
+function formatDate(date) {
+  return new Intl.DateTimeFormat(
+    "jp-JP",
+
+    { weekday: "long" }
+  ).format(date)
+}
+
+function ToDoList() {
+  return <h2>To Do List for {formatDate(today)}</h2>
 }
