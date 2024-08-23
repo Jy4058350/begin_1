@@ -1,21 +1,22 @@
 export default function App() {
   return (
     <>
-      <ToDoList />
+      <TodoList />
     </>
   )
 }
 
-const today = new Date()
-
-function formatDate(date) {
-  return new Intl.DateTimeFormat(
-    "jp-JP",
-
-    { weekday: "long" }
-  ).format(date)
-}
-
-function ToDoList() {
-  return <h2>To Do List for {formatDate(today)}</h2>
+function TodoList() {
+  return (
+    <ul
+      style={{
+        backgroundColor: "black",
+        color: "green",
+      }}
+    >
+      <li>Improve the videophone</li>
+      <li>Prepare aeronautics lectures</li>
+      <li>Work on the alcohol-fuelled engine</li>
+    </ul>
+  )
 }
