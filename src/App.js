@@ -3,21 +3,25 @@ import { getImageUrl } from "./utils.js"
 export default function App() {
   return (
     <>
-      <Avatar person={{ name: "Lin Lanying", imageId: "1bX5QH6" }} size={100} />
+      {" "}
+      <Avator person={{ name: "Lin Lanying", imageId: "1bX5QH6" }} size={100} />
+      <Avator
+        person={{ name: "Katsuko Saruhashi", imageId: "YfeOqp2" }}
+        size={50}
+      />
+      <Avator person={{ name: "Aklilu Lemma", imageId: "OKS67lh" }} size={80} />
     </>
   )
 }
 
-function Avatar({ person, size }) {
+function Avator({ person, size }) {
   return (
-    <>
-      <img
-        className="avatar"
-        src={getImageUrl(person)}
-        alt={person.name}
-        width={size}
-        height={size}
-      />
-    </>
+    <img
+      className="avatar"
+      src={getImageUrl(person)}
+      alt={person.name}
+      width={size}
+      height={size}
+    />
   )
 }
