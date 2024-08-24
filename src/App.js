@@ -1,27 +1,23 @@
+import { getImageUrl } from "./utils.js"
+
 export default function App() {
   return (
     <>
-      <Avatar person />
+      <Avatar person={{ name: "Lin Lanying", imageId: "1bX5QH6" }} size={100} />
     </>
   )
 }
 
-const person = {
-  url: "https://i.imgur.com/1bX5QH6.jpg",
-  name: "Lin Lanying",
-  width: "100",
-  height: "100",
-}
-
-function Avatar(person) {
-  console.log(person)
-  const avatar = person.url
-  const description = person.name
-  const w = person.width
-  const h = person.height
+function Avatar({ person, size }) {
   return (
     <>
-      <img src={avatar} alt={description} width={w} height={h} />
+      <img
+        className="avatar"
+        src={getImageUrl(person)}
+        alt={person.name}
+        width={size}
+        height={size}
+      />
     </>
   )
 }
