@@ -7,12 +7,10 @@ export default function App() {
       <Profile
         size={70}
         person={{ name: 'Maria Skłodowska-Curie', imageId: 'szV5sdG' }}
-        job={'physicist and chemist'}
+        job='physicist and chemist'
         award={4}
-        awardDescription={
-          'Nobel Prize in Physics, Nobel Prize in Chemistry, Davy Medal, Matteucci Medal'
-        }
-        discoveredDescription={'polonium (chemical element)'}
+        awardDescription='Nobel Prize in Physics, Nobel Prize in Chemistry, Davy Medal, Matteucci Medal'
+        discoveredDescription='polonium (chemical element)'
       />
       <Profile
         size={70}
