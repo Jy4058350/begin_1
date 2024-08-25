@@ -1,9 +1,9 @@
 function Item({ name, isPacked }) {
-  let itemContent = name
-  if (isPacked) {
-    itemContent = name + '✔︎'
-  }
-  return <li>{itemContent}</li>
+  return (
+    <li className='item'>
+      {name} {isPacked ? '✔︎' : '❌'}
+    </li>
+  )
 }
 
 export default function App() {
@@ -11,9 +11,9 @@ export default function App() {
     <section>
       <h1>Sally Ride's Packing List</h1>
       <ul>
-        <Item name='Space suit' isPacked={true} />
-        <Item name='Helmet with a golden leaf' isPacked={true} />
-        <Item name='Photo of Tam' isPacked={false} />
+        <Item isPacked={true} name='Space suit' />
+        <Item isPacked={true} name='Helmet with a golden leaf' />
+        <Item isPacked={false} name='Photo of Tam' />
       </ul>
     </section>
   )
