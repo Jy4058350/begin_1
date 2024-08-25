@@ -22,7 +22,8 @@ export default function App() {
       <ul>
         {Items.map(item => (
           <li key={item.id}>
-            {item.isPacked ? `${item.product}'✔︎'` : `${item.product}`}
+            {/* {item.isPacked ? `${item.product}'✔︎'` : `${item.product}`} */}
+            {item.isPacked ? null : `${item.product}`}
           </li>
         ))}
       </ul>
