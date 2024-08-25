@@ -1,5 +1,10 @@
 function Item({ name, isPacked }) {
-  return <li>{isPacked ? <del>{name + '✔︎'}</del> : name}</li>
+  return (
+    <li>
+      {name}
+      {isPacked && '✔︎'}
+    </li>
+  )
 }
 
 export default function App() {
