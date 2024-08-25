@@ -1,8 +1,5 @@
 function Item({ name, isPacked }) {
-  if (isPacked) {
-    return null
-  }
-  return <li>{name}</li>
+  return <li>{isPacked ? name + '✔︎' : name}</li>
 }
 
 export default function App() {
