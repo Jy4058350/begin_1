@@ -1,10 +1,9 @@
 function Item({ name, isPacked }) {
-  return (
-    <li>
-      {name}
-      {isPacked && '✔︎'}
-    </li>
-  )
+  let itemContent = name
+  if (isPacked) {
+    itemContent = name + '✔︎'
+  }
+  return <li>{itemContent}</li>
 }
 
 export default function App() {
