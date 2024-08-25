@@ -4,7 +4,7 @@ export default function App() {
   return (
     <>
       {' '}
-      <Avator person={{ name: 'Lin Lanying', imageId: '1bX5QH6' }} size={100} />
+      <Avator person={{ name: 'Lin Lanying', imageId: '1bX5QH6' }} />
       <Avator
         person={{ name: 'Katsuko Saruhashi', imageId: 'YfeOqp2' }}
         size={50}
@@ -14,7 +14,7 @@ export default function App() {
   )
 }
 
-function Avator({ person, size }) {
+function Avator({ person, size = 100 }) {
   return (
     <img
       className='avatar'
