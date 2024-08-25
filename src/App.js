@@ -5,19 +5,22 @@ export default function App() {
     <div>
       <h1>Notable Scientists</h1>
       <Profile
-        size={70}
-        person={{ name: 'Maria Skłodowska-Curie', imageId: 'szV5sdG' }}
+        name='Maria Skłodowska-Curie'
+        imageId='szV5sdG'
         job='physicist and chemist'
-        award={4}
-        awardDescription='Nobel Prize in Physics, Nobel Prize in Chemistry, Davy Medal, Matteucci Medal'
+        awards={[
+          'Nobel Prize in Physics',
+          'Nobel Prize in Chemistry',
+          'Davy Medal',
+          'Matteucci Medal',
+        ]}
         discoveredDescription='polonium (chemical element)'
       />
       <Profile
-        size={70}
-        person={{ name: 'Katsuko Saruhashi', imageId: 'YfeOqp2' }}
+        name='Katsuko Saruhashi'
+        imageId='YfeOqp2'
         job={'geochemist'}
-        award={2}
-        awardDescription={'Miyake Prize for geochemistry, Tanaka Prize'}
+        awards={['Miyake Prize for geochemistry', 'Tanaka Prize']}
         discoveredDescription={
           'a method for measuring carbon dioxide in seawater'
         }
@@ -27,21 +30,21 @@ export default function App() {
 }
 
 function Profile({
-  size,
-  person,
+  name,
+  imageId,
   job,
-  award,
-  awardDescription,
+  awards,
   discoveredDescription,
+  size = 70,
 }) {
   return (
     <section className='profile'>
       <h2>
-        {person.name}
+        {name}
         <img
           className='avatar'
-          src={getImageUrl(person.imageId)}
-          alt={person.name}
+          src={getImageUrl(imageId)}
+          alt={name}
           width={size}
           height={size}
         />
@@ -51,8 +54,8 @@ function Profile({
             {job}
           </li>
           <li>
-            <b>Awards:{award}</b>
-            {awardDescription}
+            <b>Awards:{awards.length}</b>
+            {awards}
           </li>
           <li>
             <b>Discovered: </b>
