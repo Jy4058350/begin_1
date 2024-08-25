@@ -1,32 +1,19 @@
-export default function App() {
-  const Items = [
-    {
-      id: 0,
-      product: 'Space suit',
-      isPacked: true,
-    },
-    {
-      id: 1,
-      product: 'Helmet with a golden leaf',
-      isPacked: true,
-    },
-    {
-      id: 2,
-      product: 'Photo of Tam',
-      isPacked: false,
-    },
-  ]
+function Item({ name, isPacked }) {
+  if (isPacked) {
+    return <li>{name}✔︎</li>
+  }
+  return <li>{name}</li>
+}
 
+export default function App() {
   return (
-    <>
+    <section>
+      <h1>Sally Ride's Packing List</h1>
       <ul>
-        {Items.map(item => (
-          <li key={item.id}>
-            {/* {item.isPacked ? `${item.product}'✔︎'` : `${item.product}`} */}
-            {item.isPacked ? null : `${item.product}`}
-          </li>
-        ))}
+        <Item name='Space suit' isPacked={true} />
+        <Item name='Helmet with a golden leaf' isPacked={true} />
+        <Item name='Photo of Tam' isPacked={false} />
       </ul>
-    </>
+    </section>
   )
 }
