@@ -10,8 +10,15 @@ export default function Poem() {
   return (
     <article>
       {poem.lines.map((line, index) => (
-        <p key={index}>{line}</p>
+        <Fragment key={poem.index}>
+          <p key={index}>{line}</p>
+          <hr />
+        </Fragment>
       ))}
     </article>
   )
+}
+
+function Fragment({ line, index }) {
+  return <></>
 }
