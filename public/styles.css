@@ -545,6 +545,19 @@ video {
   --tw-contain-style:  ;
 }
 
-.filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.font-thin {
+  font-weight: 100;
+}
+
+.font-bold {
+  font-weight: 700;
 }
