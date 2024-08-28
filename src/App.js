@@ -1,3 +1,25 @@
+// const poem = {
+//   lines: [
+//     'I write, erase, rewrite',
+//     'Erase again, and then',
+//     'A poppy blooms.',
+//   ],
+// }
+
+// export default function Poem() {
+//   let output = []
+
+//   poem.lines.forEach((line, i) => {
+//     output.push(<hr key={i + '-separator'} />)
+//     output.push(<p key={i + '-text'}>{line}</p>)
+//   })
+//   output.shift()
+//   console.log(output)
+
+//   return <article>{output}</article>
+// }
+import { Fragment } from 'react'
+
 const poem = {
   lines: [
     'I write, erase, rewrite',
@@ -7,14 +29,14 @@ const poem = {
 }
 
 export default function Poem() {
-  let output = []
-
-  poem.lines.forEach((line, i) => {
-    output.push(<hr key={i + '-separator'} />)
-    output.push(<p key={i + '-text'}>{line}</p>)
-  })
-  output.shift()
-  console.log(output)
-
-  return <article>{output}</article>
+  return (
+    <article>
+      {poem.lines.map((line, i) => (
+        <Fragment key={i}>
+          {i > 0 && <hr />}
+          <p>{line}</p>
+        </Fragment>
+      ))}
+    </article>
+  )
 }
