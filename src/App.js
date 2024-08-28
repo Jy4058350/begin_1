@@ -1,7 +1,9 @@
 export default function App() {
   const chemists = people.filter(person => person.profession === 'chemist')
-  const listItems = chemists.map(person => <li>{person}</li>)
-  return <li>{listItems}</li>
+  const listItems = chemists.map(person => (
+    <li key={person.id}>{person.name}</li>
+  ))
+  return <ul>{listItems}</ul>
 }
 
 const people = [
