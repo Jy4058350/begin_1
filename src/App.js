@@ -2,44 +2,38 @@ import { people } from './data.js'
 import { getImageUrl } from './utils.js'
 
 export default function List() {
-  const listItems = people.map(person => (
-    <li key={person.id}>
-      <img src={getImageUrl(person)} alt={person.name} />
-      <p>
-        <b>{person.name}:</b>
-        {' ' + person.profession + ' '}
-        known for {person.accomplishment}
-      </p>
-    </li>
-  ))
   const chemists = people.filter(person => person.profession === 'chemist')
-  const chemistListItems = chemists.map(person => (
-    <li key={person.id}>
-      <img src={getImageUrl(person)} alt={person.name} />
-      <p>
-        <b>{person.name}:</b>
-        {' ' + person.profession + ' '}
-        known for {person.accomplishment}
-      </p>
-    </li>
-  ))
   const others = people.filter(person => person.profession !== 'chemist')
-  const otherListItems = others.map(person => (
-    <li key={person.id}>
-      <img src={getImageUrl(person)} alt={person.name} />
-      <p>
-        <b>{person.name}:</b>
-        {' ' + person.profession + ' '}
-        known for {person.accomplishment}
-      </p>
-    </li>
-  ))
   return (
     <article>
-      <h1>Chemist Scientists</h1>
-      <ul>{chemistListItems}</ul>
-      <h1>Other Scientists</h1>
-      <ul>{otherListItems}</ul>
+      <h1>Scientists</h1>
+      <h2>Chemist</h2>
+      <ul>
+        {chemists.map(person => (
+          <li key={person.id}>
+            <img src={getImageUrl(person)} alt={person.name} />
+            <p>
+              <b>{person.name}:</b>
+              {' ' + person.profession + ' '}
+              known for {person.accomplishment}
+            </p>
+          </li>
+        ))}
+      </ul>
+      <h1>Scientists</h1>
+      <h2>Other</h2>
+      <ul>
+        {others.map(person => (
+          <li key={person.id}>
+            <img src={getImageUrl(person)} alt={person.name} />
+            <p>
+              <b>{person.name}:</b>
+              {' ' + person.profession + ' '}
+              known for {person.accomplishment}
+            </p>
+          </li>
+        ))}
+      </ul>
     </article>
   )
 }
