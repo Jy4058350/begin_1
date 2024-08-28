@@ -1,4 +1,5 @@
 export default function App() {
+  const listItems = people.map(person => <li>{person}</li>)
   return <ul>{listItems}</ul>
 }
 
@@ -9,5 +10,3 @@ const people = [
   'Percy Lavon Julian: chemist',
   'Subrahmanyan Chandrasekhar: astrophysicist',
 ]
-
-const listItems = people.map(person => <li>{person}</li>)
