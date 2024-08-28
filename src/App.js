@@ -7,18 +7,13 @@ const poem = {
 }
 
 export default function Poem() {
-  return (
-    <article>
-      {poem.lines.map((line, index) => (
-        <Fragment key={poem.index}>
-          <p key={index}>{line}</p>
-          <hr />
-        </Fragment>
-      ))}
-    </article>
-  )
-}
+  let output = []
 
-function Fragment({ line, index }) {
-  return <></>
+  poem.lines.forEach((line, i) => {
+    output.push(<hr key={i + '-separator'} />)
+    output.push(<p key={i + '-text'}>{line}</p>)
+  })
+  output.shift()
+
+  return <article>{output}</article>
 }
