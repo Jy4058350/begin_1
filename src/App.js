@@ -1,24 +1,18 @@
 import { recipes } from './data.js'
 
 export default function RecipeList() {
-  console.log(recipes)
-  console.log(recipes[0].id)
   return (
     <div>
       <h1>Recipes</h1>
-      <div>
-        <Recipe recipes={{ id, name, ingredients }} />
-      </div>
-    </div>
-  )
-}
-
-function Recipe({ recipes }) {
-  console.log(recipes)
-  return (
-    <div>
       {recipes.map(recipe => (
-        <h1 key={recipe.id}>{recipes.name}</h1>
+        <div key={recipe.id}>
+          <h2>{recipe.name}</h2>
+          <ul>
+            {recipe.ingredients.map(ingredient => (
+              <li key={ingredient}>{ingredient}</li>
+            ))}
+          </ul>
+        </div>
       ))}
     </div>
   )
