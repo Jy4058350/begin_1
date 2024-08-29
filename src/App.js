@@ -1,42 +1,27 @@
-// const poem = {
-//   lines: [
-//     'I write, erase, rewrite',
-//     'Erase again, and then',
-//     'A poppy blooms.',
-//   ],
-// }
-
-// export default function Poem() {
-//   let output = []
-
-//   poem.lines.forEach((line, i) => {
-//     output.push(<hr key={i + '-separator'} />)
-//     output.push(<p key={i + '-text'}>{line}</p>)
-//   })
-//   output.shift()
-//   console.log(output)
-
-//   return <article>{output}</article>
-// }
-import { Fragment } from 'react'
-
-const poem = {
-  lines: [
-    'I write, erase, rewrite',
-    'Erase again, and then',
-    'A poppy blooms.',
-  ],
+function Recipe({ drinkers }) {
+  return (
+    <ol className='ml-4 list-decimal'>
+      <li className='  text-base font-normal'>
+        Boil {drinkers} cups of water.
+      </li>
+      <li className=' text-base font-normal '>
+        Add {drinkers} spoons of tea and {0.5 * drinkers} spoons of spice.
+      </li>
+      <li className=' text-base font-normal'>
+        Add {0.5 * drinkers} cups of milk to boil and sugar to taste.
+      </li>
+    </ol>
+  )
 }
 
-export default function Poem() {
+export default function App() {
   return (
-    <article>
-      {poem.lines.map((line, i) => (
-        <Fragment key={i}>
-          {i > 0 && <hr />}
-          <p>{line}</p>
-        </Fragment>
-      ))}
-    </article>
+    <section className=' p-4'>
+      <h1 className='mb-4 text-xl font-bold'>Spiced Chai Recipe</h1>
+      <h2 className='mb-4 text-lg font-semibold'>For two</h2>
+      <Recipe drinkers={2} />
+      <h2 className='mb-4 mt-4 text-lg font-semibold'>For a gathering</h2>
+      <Recipe drinkers={4} />
+    </section>
   )
 }
