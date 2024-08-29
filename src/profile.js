@@ -4,25 +4,26 @@ import { getImageUrl } from './utils.js'
 let currentPerson
 
 export default function Profile({ person }) {
-  currentPerson = person
+  // console.log(person.imageId)
   return (
     <Panel>
-      <Header />
-      <Avatar />
+      <Header name={person.name} />
+      <Avatar id={person} name={person.name} />
     </Panel>
   )
 }
 
-function Header() {
-  return <h1>{currentPerson.name}</h1>
+function Header({ name }) {
+  return <h1>{name}</h1>
 }
 
-function Avatar() {
+function Avatar({ id, name }) {
+  console.log(id)
   return (
     <img
       className='avatar'
-      src={getImageUrl(currentPerson)}
-      alt={currentPerson.name}
+      src={getImageUrl(id)}
+      alt={name}
       width={50}
       height={50}
     />
