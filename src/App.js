@@ -1,12 +1,20 @@
-export default function App({ time }) {
-  let hours = time.getHours()
-  let className
+import Profile from './Profile.js'
 
-  if (hours >= 0 && hours <= 6) {
-    className = 'night'
-  } else {
-    className = 'day'
-  }
-
-  return <h1 className={className}>{time.toLocaleTimeString()}</h1>
+export default function App() {
+  return (
+    <>
+      <Profile
+        person={{
+          imageId: 'lrWQx8l',
+          name: 'Subrahmanyan Chandrasekhar',
+        }}
+      />
+      <Profile
+        person={{
+          imageId: 'MK3eW3A',
+          name: 'Creola Katherine Johnson',
+        }}
+      />
+    </>
+  )
 }
