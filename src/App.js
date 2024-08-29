@@ -1,8 +1,12 @@
-export default function App() {
-  let time
-  console.log(time)
+export default function App({ time }) {
   let hours = time.getHours()
-  console.log(hours)
+  let className
 
-  return <h1>test</h1>
+  if (hours >= 0 && hours <= 6) {
+    className = 'night'
+  } else {
+    className = 'day'
+  }
+
+  return <h1 className={className}>{time.toLocaleTimeString()}</h1>
 }

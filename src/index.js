@@ -3,4 +3,5 @@ import App from './App.js'
 
 const app = ReactDOM.createRoot(document.getElementById('app'))
 
-app.render(<App />)
+const time = new Date()
+app.render(<App time={time} />)
