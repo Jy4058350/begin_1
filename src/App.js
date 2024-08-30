@@ -1,12 +1,17 @@
 export default function App() {
-  return <Toolbar />
+  return (
+    <Toolbar
+      onPlayMovie={() => alert('Playing!')}
+      onUploadImage={() => alert('Uploading!')}
+    />
+  )
 }
 
-function Toolbar() {
+function Toolbar({ Movie, Image }) {
   return (
     <div>
-      <button>Play Movie</button>
-      <button>Upload Image</button>
+      <button onClick={Movie}>Play Movie</button>
+      <button onClick={Image}>Upload Image</button>
     </div>
   )
 }
