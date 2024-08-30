@@ -7,11 +7,11 @@ export default function App() {
   )
 }
 
-function Toolbar({ Movie, Image }) {
+function Toolbar({ onPlayMovie, onUploadImage }) {
   return (
     <div>
-      <button onClick={Movie}>Play Movie</button>
-      <button onClick={Image}>Upload Image</button>
+      <button onClick={onPlayMovie}>Play Movie</button>
+      <button onClick={onUploadImage}>Upload Image</button>
     </div>
   )
 }
