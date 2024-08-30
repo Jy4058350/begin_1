@@ -12,7 +12,11 @@ export default function InspirationGenerator({ children }) {
   return (
     <>
       <p>Your inspirational {inspiration.type} is:</p>
-      <FancyText text={inspiration.value} />
+      {inspiration.type === 'quote' ? (
+        <FancyText text={inspiration.value} />
+      ) : (
+        <Color value={inspiration.value} />
+      )}
       <button onClick={next}>Inspire me again</button>
       {children}
     </>
