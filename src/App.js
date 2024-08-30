@@ -10,16 +10,16 @@ export default function App() {
 function Toolbar({ onPlayMovie, onUploadImage }) {
   return (
     <div>
-      <Button children='Play Movie' />
-      <Button children='Upload Image' />
+      <Button onClick={onPlayMovie} children='Play Movie' />
+      <Button onClick={onUploadImage} children='Upload Image' />
     </div>
   )
 }
 
-function Button({ children }) {
+function Button({ onClick, children }) {
   return (
     <div>
-      <button>{children}</button>
+      <button onClick={onClick}>{children}</button>
     </div>
   )
 }
