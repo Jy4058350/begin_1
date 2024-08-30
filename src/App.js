@@ -1,12 +1,12 @@
 export default function Toolbar() {
   return (
     <div>
-      <AlertButton message='Playing' button='Play Movie' />
-      <AlertButton message='Uploading' button='Upload Image' />
+      <AlertButton message='Playing'>Play Movie</AlertButton>
+      <AlertButton message='Uploading'>Upload Image </AlertButton>
     </div>
   )
 }
 
-function AlertButton({ message, button }) {
-  return <button onClick={() => alert(`${message}`)}>{button}</button>
+function AlertButton({ message, children }) {
+  return <button onClick={() => alert(`${message}`)}>{children}</button>
 }
