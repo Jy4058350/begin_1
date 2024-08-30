@@ -7,6 +7,7 @@ export default function App() {
   )
 }
 
+//Display btn
 function Toolbar({ onPlayMovie, onUploadImage }) {
   return (
     <div>
@@ -15,7 +16,7 @@ function Toolbar({ onPlayMovie, onUploadImage }) {
     </div>
   )
 }
-
+// Btn function
 function Button({ onClick, children }) {
   return (
     <div>
