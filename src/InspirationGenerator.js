@@ -2,6 +2,7 @@ import * as React from 'react'
 import quotes from './quotes'
 import inspirations from './inspirations'
 import FancyText from './FancyText'
+import Color from './Color'
 
 export default function InspirationGenerator({ children }) {
   const [index, setIndex] = React.useState(0)
