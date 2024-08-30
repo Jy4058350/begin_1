@@ -5,7 +5,6 @@ import FancyText from './FancyText'
 
 export default function InspirationGenerator({ children }) {
   const [index, setIndex] = React.useState(0)
-  const quote = quotes[index]
   const inspiration = inspirations[index]
   const next = () => setIndex((index + 1) % quotes.length)
 
