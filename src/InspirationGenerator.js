@@ -4,6 +4,7 @@ import FancyText from './FancyText'
 
 export default function InspirationGenerator({ children }) {
   const [index, setIndex] = React.useState(0)
+  console.log(index)
   const quote = quotes[index]
   const next = () => setIndex((index + 1) % quotes.length)
 

@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 * {
   box-sizing: border-box;
@@ -50,18 +50,16 @@ ul {
   padding-inline-start: 20px;
 }
 
-.avatar {
-  margin: 5px;
-  border-radius: 50%;
+.fancy {
+  font-family: 'Georgia';
 }
-.panel {
-  border: 1px solid #aaa;
-  border-radius: 6px;
-  margin-top: 20px;
-  padding: 10px;
-  width: 200px;
+.title {
+  color: #007aa3;
+  text-decoration: underline;
 }
-h1 {
-  margin: 5px;
-  font-size: 18px;
+.cursive {
+  font-style: italic;
+}
+.small {
+  font-size: 10px;
 }

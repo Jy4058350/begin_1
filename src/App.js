@@ -3,5 +3,12 @@ import InspirationGenerator from './InspirationGenerator'
 import Copyright from './Copyright'
 
 export default function App() {
-  return <h1 className='text-red-300 text-3xl'>Hellow React!</h1>
+  return (
+    <>
+      <FancyText title text='Get Inspired App' />
+      <InspirationGenerator>
+        <Copyright year={2004} />
+      </InspirationGenerator>
+    </>
+  )
 }
