@@ -1,13 +1,5 @@
-const messages = [
-  {
-    id: 0,
-    message: 'Playing!',
-  },
-  {
-    id: 1,
-    message: 'Uploading!',
-  },
-]
+// ヒント　２種類のボタンをつくる。
+// 例えば動画再生用とアップロード用のボタンをコンポーネント化する
 
 export default function Toolbar() {
   return (
