@@ -8,21 +8,25 @@
 // Step3
 // ボタンの名称もボタンごとに確定しているはず
 
+// Step4
+// 再生する動画タイトルは別変数で取る方針にしていく
+
 export default function Toolbar() {
   return (
     <div>
-      <PlayButton />
+      <PlayButton movieName='Kikis Delivery Service' />
       <UploadButton />
     </div>
   )
 }
 
-function PlayButton() {
+function PlayButton({ movieName }) {
   const PlayClick = () => {
-    return alert('Playing Kikis Delivery Service!')
+    return alert(`Playing ${movieName}!`)
   }
   return <Button onClick={PlayClick}>Playing Kiki's Delivery Service</Button>
 }
+
 function UploadButton() {
   return (
     <Button
