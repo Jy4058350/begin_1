@@ -8,15 +8,12 @@ export default function Gallery() {
   function handlePrevClick() {
     if (index > 0) {
       setIndex(index - 1)
-    } else return
+    }
   }
 
   function handleNextClick() {
-    if (index < 11) {
+    if (index < sculptureList.length - 1) {
       setIndex(index + 1)
-    } else {
-      setIndex(index - 11)
-      // return
     }
   }
 
