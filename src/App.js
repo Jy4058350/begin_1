@@ -18,8 +18,10 @@ export default function Form() {
   }
 
   return (
+    // e.preventDefault
     <form onSubmit={e => e.preventDefault()}>
       <input
+        // placeholder property
         placeholder='First name'
         value={firstName}
         onChange={handleFirstNameChange}
