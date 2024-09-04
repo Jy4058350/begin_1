@@ -5,6 +5,7 @@ export default function TrafficLight() {
 
   function handleClick() {
     setWalk(!walk)
+    alert(`${!walk ? 'work' : 'stop'} is next`)
   }
 
   return (
