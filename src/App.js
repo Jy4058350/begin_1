@@ -9,7 +9,9 @@ export default function Counter() {
       <button
         onClick={() => {
           setNumber(number + 5)
-          alert(number)
+          setTimeout(() => {
+            alert(number)
+          }, 3000)
         }}
       >
         +5
