@@ -1,14 +1,13 @@
 export function getFinalState(baseState, queue) {
   let finalState = baseState
 
-  queue.map(q => {
-    if (typeof q !== 'object') {
-      finalState = baseState + q
-      console.log(finalState)
+  for (let update of queue) {
+    if (typeof update === 'function') {
+      finalState = queue.length
     } else {
-      console.log(q)
+      finalState = update
     }
-    return finalState
-  })
+  }
+
   return finalState
 }
