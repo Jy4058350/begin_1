@@ -4,14 +4,14 @@ export default function Form() {
   const [isSent, setIsSent] = useState(false)
   const [message, setMessage] = useState('Hi!')
   if (isSent) {
-    return <h1>Your message is on its way!</h1>
+    return <h1>Hi! {message} Your message is on its way!</h1>
   }
   return (
     <form
       onSubmit={e => {
         e.preventDefault()
         setIsSent(true)
-        sendMessage(message)
+        // sendMessage(message)
       }}
     >
       <textarea
