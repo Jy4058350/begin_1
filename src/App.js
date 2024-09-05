@@ -1,26 +1,26 @@
 import { useState } from 'react'
 
 export default function BuyClick() {
-  const [count, setCount] = useState(0)
-  const [count1, setCount1] = useState(0)
+  const [pending, setPending] = useState(0)
+  const [completed, setCompleted] = useState(0)
 
   function handleClick() {
-    setCount(c => c + 1)
-    AddBuy(setCount, setCount1)
+    setPending(c => c + 1)
+    AddBuy(setPending, setCompleted)
   }
 
   return (
     <>
-      <h1>Pending: {count}</h1>
-      <h1>Completed: {count1}</h1>
+      <h1>Pending: {pending}</h1>
+      <h1>Completed: {completed}</h1>
       <button onClick={handleClick}>Buy</button>
     </>
   )
 }
 
-function AddBuy(setCount, setCount1) {
+function AddBuy(setPending, setCompleted) {
   setTimeout(c => {
-    setCount(c => c - 1)
-    setCount1(c => c + 1)
+    setPending(c => c - 1)
+    setCompleted(c => c + 1)
   }, 1000)
 }
