@@ -1,19 +1,26 @@
 import { useState } from 'react'
 
-export default function Counter() {
-  const [number, setNumber] = useState(0)
+export default function BuyClick() {
+  const [count, setCount] = useState(0)
+  const [count1, setCount1] = useState(0)
 
   function handleClick() {
-    //これは間違い
-    setNumber(n => n + 1)
-    setNumber(number + 5)
-    setNumber(42)
+    setCount(c => c + 1)
+    AddBuy(setCount, setCount1)
   }
 
   return (
     <>
-      <h1>{number}</h1>
-      <button onClick={handleClick}>Increase the number</button>
+      <h1>Pending: {count}</h1>
+      <h1>Completed: {count1}</h1>
+      <button onClick={handleClick}>Buy</button>
     </>
   )
+}
+
+function AddBuy(setCount, setCount1) {
+  setTimeout(c => {
+    setCount(c => c - 1)
+    setCount1(c => c + 1)
+  }, 1000)
 }
