@@ -26,7 +26,7 @@ export default function Form() {
     <>
       <label>
         First name:
-        <input value={person.firstName} onChange={handleFirstNameChange} />
+        <input value={person.firstName} onChange={} />
       </label>
       <label>
         Last name:
