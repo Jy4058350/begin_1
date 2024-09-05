@@ -4,8 +4,9 @@
 
 body {
   font-family: sans-serif;
-  margin: 20px;
+  /* margin: 20px; */
   padding: 0;
+  margin: 0;
 }
 
 h1 {
