@@ -4,9 +4,11 @@ export default function BuyClick() {
   const [pending, setPending] = useState(0)
   const [completed, setCompleted] = useState(0)
 
-  function handleClick() {
-    setPending(c => c + 1)
-    AddBuy(setPending, setCompleted)
+  async function handleClick() {
+    setPending(n => n + 1)
+    await delay(1000)
+    setPending(n => n - 1)
+    setCompleted(n => n + 1)
   }
 
   return (
@@ -18,9 +20,8 @@ export default function BuyClick() {
   )
 }
 
-function AddBuy(setPending, setCompleted) {
-  setTimeout(c => {
-    setPending(c => c - 1)
-    setCompleted(c => c + 1)
-  }, 1000)
+function delay(ms) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms)
+  })
 }
