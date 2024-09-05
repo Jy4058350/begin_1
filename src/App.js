@@ -5,7 +5,7 @@ export default function Counter() {
 
   function handleClick() {
     //これは間違い
-    setNumber(5)
+    setNumber(number + 5)
     setNumber(n => n + 1)
   }
 
