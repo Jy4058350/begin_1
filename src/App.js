@@ -12,11 +12,14 @@ export default function Form() {
   }
 
   function handleLastNameChange(e) {
-    person.lastName = e.target.value
+    setPerson({
+      ...person,
+      lastName: e.target.value,
+    })
   }
 
   function handleEmailChange(e) {
-    person.email = e.target.value
+    setPerson({ ...person, email: e.target.value })
   }
 
   return (
