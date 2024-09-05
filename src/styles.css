@@ -4,9 +4,8 @@
 
 body {
   font-family: sans-serif;
-  /* margin: 20px; */
+  margin: 20px;
   padding: 0;
-  margin: 0;
 }
 
 h1 {
@@ -47,14 +46,10 @@ ul {
   padding-inline-start: 20px;
 }
 
-button {
-  display: inline-block;
-  margin: 10px;
-  font-size: 20px;
+label {
+  display: block;
 }
-h1 {
-  /* display: inline-block; */
-  /* margin: 10px; */
-  /* width: 30px; */
-  /* text-align: center; */
+input {
+  margin-left: 5px;
+  margin-bottom: 5px;
 }
