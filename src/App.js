@@ -4,6 +4,7 @@ export default function Counter() {
   const [number, setNumber] = useState(0)
 
   function handleClick() {
+    //これは間違い
     setNumber(5)
     setNumber(n => n + 1)
   }
