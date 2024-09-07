@@ -1,40 +1,64 @@
 import { useState } from 'react'
 
 export default function Form() {
-  const [firstName, setFirstName] = useState('Barbara')
-  const [lastName, setLastName] = useState('Hepworth')
-  const [email, setEmail] = useState('bhepworth@sculpture.com')
+  const [person, setPerson] = useState({
+    firstName: 'Barbara',
+    lastName: 'Hepworth',
+    email: 'bhepworth@sculpture.com',
+  })
 
   function handleChange(e) {
-    const nextFirstName = e.target.value
-    setFirstName(nextFirstName)
+    setPerson({
+      firstName: e.target.value,
+      lastName: person.lastName,
+      email: person.email,
+    })
   }
   function handleChange1(e) {
-    const nextLastName = e.target.value
-    setLastName(nextLastName)
+    setPerson({
+      firstName: person.firstName,
+      lastName: e.target.value,
+      email: person.email,
+    })
   }
   function handleChange2(e) {
-    const nextEmail = e.target.value
-    setEmail(nextEmail)
+    setPerson({
+      firstName: person.firstName,
+      lastName: person.lastName,
+      email: e.target.value,
+    })
   }
 
   return (
     <section>
       <label htmlFor=''>
         First name:
-        <input type='text' value={firstName} onChange={e => handleChange(e)} />
+        <input
+          type='text'
+          value={person.firstName}
+          onChange={e => handleChange(e)}
+        />
       </label>
       <label htmlFor=''>
         Last name:
-        <input type='text' value={lastName} onChange={e => handleChange1(e)} />
+        <input
+          type='text'
+          value={person.lastName}
+          onChange={e => handleChange1(e)}
+        />
       </label>
       <label htmlFor=''>
         Email;
-        <input type='mail' value={email} onChange={e => handleChange2(e)} />
+        <input
+          type='mail'
+          value={person.email}
+          onChange={e => handleChange2(e)}
+        />
       </label>
 
       <div>
-        {firstName} {lastName} ({email})
+        {person.firstName} {person.lastName} ({person.email})
+        {/* {person.firstName} */}
       </div>
     </section>
   )
