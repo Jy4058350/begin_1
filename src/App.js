@@ -1,41 +1,41 @@
 import { useState } from 'react'
 
 export default function Form() {
-  const [person, setPerson] = useState({
-    firstName: 'Barbara',
-    lastName: 'Hepworth',
-    email: 'bhepworth@sculpture.com',
-  })
+  const [firstName, setFirstName] = useState('Barbara')
+  const [lastName, setLastName] = useState('Hepworth')
+  const [email, setEmail] = useState('bhepworth@sculpture.com')
 
   function handleChange(e) {
-    setPerson({ ...person, [e.target.name]: e.target.value })
+    const nextFirstName = e.target.value
+    setFirstName(nextFirstName)
+  }
+  function handleChange1(e) {
+    const nextLastName = e.target.value
+    setLastName(nextLastName)
+  }
+  function handleChange2(e) {
+    const nextEmail = e.target.value
+    setEmail(nextEmail)
   }
 
   return (
-    <>
-      <label>
+    <section>
+      <label htmlFor=''>
         First name:
-        <input
-          name='firstName'
-          value={person.firstName}
-          onChange={handleChange}
-        />
+        <input type='text' value={firstName} onChange={e => handleChange(e)} />
       </label>
-      <label>
+      <label htmlFor=''>
         Last name:
-        <input
-          name='lastName'
-          value={person.lastName}
-          onChange={handleChange}
-        />
+        <input type='text' value={lastName} onChange={e => handleChange1(e)} />
       </label>
-      <label>
-        Email:
-        <input name='email' value={person.email} onChange={handleChange} />
+      <label htmlFor=''>
+        Email;
+        <input type='mail' value={email} onChange={e => handleChange2(e)} />
       </label>
-      <p>
-        {person.firstName} {person.lastName} ({person.email})
-      </p>
-    </>
+
+      <div>
+        {firstName} {lastName} ({email})
+      </div>
+    </section>
   )
 }
