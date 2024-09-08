@@ -9,23 +9,8 @@ export default function Form() {
 
   function handleChange(e) {
     setPerson({
-      firstName: e.target.value,
-      lastName: person.lastName,
-      email: person.email,
-    })
-  }
-  function handleChange1(e) {
-    setPerson({
-      firstName: person.firstName,
-      lastName: e.target.value,
-      email: person.email,
-    })
-  }
-  function handleChange2(e) {
-    setPerson({
-      firstName: person.firstName,
-      lastName: person.lastName,
-      email: e.target.value,
+      ...person,
+      [e.target.name]: e.target.value,
     })
   }
 
@@ -35,6 +20,7 @@ export default function Form() {
         First name:
         <input
           type='text'
+          name='firstName'
           value={person.firstName}
           onChange={e => handleChange(e)}
         />
@@ -43,16 +29,18 @@ export default function Form() {
         Last name:
         <input
           type='text'
+          name='lastName'
           value={person.lastName}
-          onChange={e => handleChange1(e)}
+          onChange={e => handleChange(e)}
         />
       </label>
       <label htmlFor=''>
         Email;
         <input
           type='mail'
+          name='email'
           value={person.email}
-          onChange={e => handleChange2(e)}
+          onChange={e => handleChange(e)}
         />
       </label>
 
