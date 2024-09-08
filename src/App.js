@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useImmer } from 'use-immer'
 
 export default function Form() {
-  const [person, setPerson] = useState({
+  const [person, updatePerson] = useImmer({
     name: 'Yamabe Jun',
     artWork: {
       title: 'haiku',
@@ -11,19 +11,14 @@ export default function Form() {
   })
 
   function handleChange(e) {
-    setPerson({
-      name: e.target.value,
-      artWork: {
-        title: person.artWork.title,
-        city: person.artWork.city,
-        image: person.artWork.image,
-      },
+    updatePerson(draft => {
+      draft.name = e.target.value
     })
   }
   function handleChange1(e) {
-    setPerson({
-      ...person,
-      artWork: { ...person.artWork, [e.target.name]: e.target.value },
+    const { name, value } = e.target
+    updatePerson(draft => {
+      draft.artWork[name] = value
     })
   }
 
