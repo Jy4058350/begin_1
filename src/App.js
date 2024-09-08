@@ -21,42 +21,44 @@ export default function Form() {
     })
   }
   function handleChange1(e) {
-    const nextArtWork = { ...person.artWork, title: e.target.value }
-    const nextPerson = {
+    setPerson({
       ...person,
-      artWork: nextArtWork,
-    }
-    setPerson(nextPerson)
+      artWork: { ...person.artWork, [e.target.name]: e.target.value },
+    })
   }
+
   return (
     <section>
-      <label htmlFor=''>
+      <label htmlFor='name'>
         Name:
-        <input
-          type='text'
-          value={person.name}
-          onChange={e => handleChange(e)}
-        />
+        <input type='text' value={person.name} onChange={handleChange} />
       </label>
-      <label htmlFor=''>
+      <label htmlFor='title'>
         Title:
         <input
           type='text'
+          name='title'
           value={person.artWork.title}
-          onChange={e => handleChange1(e)}
+          onChange={handleChange1}
         />
       </label>
-      <label htmlFor=''>
+      <label htmlFor='city'>
         City:
         <input
           type='text'
+          name='city'
           value={person.artWork.city}
-          onChange={handleChange}
+          onChange={handleChange1}
         />
       </label>
-      <label htmlFor=''>
+      <label htmlFor='image'>
         Image:
-        <img alt='' src={person.artWork.image} />
+        <input
+          type='text'
+          name='image'
+          value={person.artWork.image}
+          onChange={handleChange1}
+        />
       </label>
       <div>
         {person.name}
@@ -65,7 +67,8 @@ export default function Form() {
         <br></br>
         {person.artWork.city}
         <br></br>
-        {person.artWork.image}
+
+        <img alt='' src={person.artWork.image} />
       </div>
     </section>
   )
