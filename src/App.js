@@ -1,15 +1,17 @@
 import { useState } from 'react'
 
 export default function Scoreborad() {
-  const [score, setScore] = useState(10)
-
   const [person, setPerson] = useState({
     firstName: 'Ranjani',
     lastName: 'Sheltar',
+    score: 10,
   })
 
   function handleClick() {
-    setScore(score + 1)
+    setPerson({
+      ...person,
+      score: person.score + 1,
+    })
   }
   function handleChange(e) {
     setPerson({
@@ -19,8 +21,7 @@ export default function Scoreborad() {
   }
   return (
     <section>
-      Score: {score}
-      <button onClick={handleClick}>+1</button>
+      Score: {person.score} <button onClick={handleClick}>+1</button>
       <label htmlFor='fistName'>
         First name:
         <input
