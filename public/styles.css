@@ -48,6 +48,7 @@ ul {
 
 label {
   display: block;
+  margin-bottom: 10px;
 }
 
 input {
