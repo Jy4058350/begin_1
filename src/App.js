@@ -1,7 +1,6 @@
-import { useState } from 'react'
-
-import Background from './Background'
-import Box from './Box'
+import { useImmer } from 'use-immer'
+import Background from './Background.js'
+import Box from './Box.js'
 
 const initialPosition = {
   x: 0,
@@ -9,27 +8,24 @@ const initialPosition = {
 }
 
 export default function Canvas() {
-  const [shape, setShape] = useState({
+  const [shape, updateShape] = useImmer({
     color: 'orange',
     position: initialPosition,
   })
 
-  function handleColorChange(e) {
-    setShape({
-      ...shape,
-      color: e.target.value,
+  function handleMove(dx, dy) {
+    updateShape(draft => {
+      draft.position.x += dx
+      draft.position.y += dy
     })
   }
 
-  function handleMove(dx, dy) {
-    setShape({
-      ...shape,
-      position: {
-        x: shape.position.x + dx,
-        y: shape.position.y + dy,
-      },
+  function handleColorChange(e) {
+    updateShape(draft => {
+      draft.color = e.target.value
     })
   }
+
   return (
     <>
       <select value={shape.color} onChange={handleColorChange}>
@@ -38,7 +34,7 @@ export default function Canvas() {
         <option value='aliceblue'>aliceblue</option>
       </select>
       <Background position={initialPosition} />
-      <Box position={shape.position} color={shape.color} onMove={handleMove}>
+      <Box color={shape.color} position={shape.position} onMove={handleMove}>
         Drag me!
       </Box>
     </>

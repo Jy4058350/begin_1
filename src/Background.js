@@ -4,8 +4,8 @@ export default function Background({ position }) {
       style={{
         position: 'absolute',
         transform: `translate(
-      ${position.x}px,
-      ${position.y}px,
+        ${position.x}px,
+        ${position.y}px
       )`,
         width: 250,
         height: 250,

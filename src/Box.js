@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Box({ children, position, color, onMove }) {
+export default function Box({ children, color, position, onMove }) {
   const [lastCoordinates, setLastCoordinates] = useState(null)
 
   function handlePointerDown(e) {
@@ -10,6 +10,7 @@ export default function Box({ children, position, color, onMove }) {
       y: e.clientY,
     })
   }
+
   function handlePointerMove(e) {
     if (lastCoordinates) {
       setLastCoordinates({
@@ -21,9 +22,11 @@ export default function Box({ children, position, color, onMove }) {
       onMove(dx, dy)
     }
   }
+
   function handlePointerUp(e) {
     setLastCoordinates(null)
   }
+
   return (
     <div
       onPointerDown={handlePointerDown}
@@ -32,6 +35,7 @@ export default function Box({ children, position, color, onMove }) {
       style={{
         width: 100,
         height: 100,
+        cursor: 'grab',
         backgroundColor: color,
         position: 'absolute',
         border: '1px solid black',
@@ -39,8 +43,9 @@ export default function Box({ children, position, color, onMove }) {
         justifyContent: 'center',
         alignItems: 'center',
         transform: `translate(
-    ${position.x}px,
-    ${position.y}px)`,
+          ${position.x}px,
+          ${position.y}px
+        )`,
       }}
     >
       {children}
