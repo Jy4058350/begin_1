@@ -20,6 +20,11 @@ export default function Canvas() {
       color: e.target.value,
     })
   }
+
+  function handleMove(dx, dy) {
+    shape.position.x += dx
+    shape.position.y += dy
+  }
   return (
     <>
       <select value={shape.color} onChange={handleColorChange}>
@@ -27,8 +32,8 @@ export default function Canvas() {
         <option value='lightpink'>lightpink</option>
         <option value='aliceblue'>aliceblue</option>
       </select>
-      <Background position={shape} />
-      <Box position={shape} color={shape.color}>
+      <Background position={initialPosition} />
+      <Box position={shape.position} color={shape.color} onMove={handleMove}>
         Drag me!
       </Box>
     </>
