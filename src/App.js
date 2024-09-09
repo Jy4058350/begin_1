@@ -1,23 +1,38 @@
 import React, { useState, useEffect } from 'react'
 
-function TextInputComponent() {
-  const [text, setText] = useState('')
+function DataFetchingComponent() {
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    console.log(`Text changed: ${text}`)
-  }, [text]) // `text`が変更されるたびにこの関数が実行されます
+    async function fetchData() {
+      try {
+        // const response = await fetch('https://api.example.com/data')
+        const response = await fetch(
+          'https://jsonplaceholder.typicode.com/posts'
+        )
+        const result = await response.json()
+        setData(result)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, []) // 空の依存関係配列で、コンポーネントのマウント時に一度だけ実行
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div>
-      <input
-        type='text'
-        value={text}
-        onChange={e => setText(e.target.value)}
-        placeholder='Type something...'
-      />
-      <p>You typed: {text}</p>
+      <h1>Fetched Data:</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   )
 }
 
-export default TextInputComponent
+export default DataFetchingComponent
