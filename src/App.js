@@ -3,9 +3,12 @@ import React, { useState, useEffect } from 'react'
 function ExampleComponent() {
   const [count, setCount] = useState(0)
 
-  useEffect(() => {
-    document.title = `You clicked ${count} times`
-  }, [count])
+  useEffect(
+    () => {
+      document.title = `You clicked ${count} times` //セットアップ関数
+    },
+    [count] //依存関係の配列
+  )
 
   return (
     <div>
