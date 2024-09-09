@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react'
 
-function ExampleComponent() {
-  const [count, setCount] = useState(0)
+function TextInputComponent() {
+  const [text, setText] = useState('')
 
-  useEffect(
-    () => {
-      document.title = `You clicked ${count} times` //セットアップ関数
-    },
-    [count] //依存関係の配列
-  )
+  useEffect(() => {
+    console.log(`Text changed: ${text}`)
+  }, [text]) // `text`が変更されるたびにこの関数が実行されます
 
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
+      <input
+        type='text'
+        value={text}
+        onChange={e => setText(e.target.value)}
+        placeholder='Type something...'
+      />
+      <p>You typed: {text}</p>
     </div>
   )
 }
 
-export default ExampleComponent
+export default TextInputComponent
