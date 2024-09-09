@@ -1,6 +1,23 @@
-import logo from "./logo.svg"
-import "./App.css"
+import React, { useState, useEffect } from 'react'
 
-function App() {}
+function TextInputComponent() {
+  const [text, setText] = useState('')
 
-export default App
+  useEffect(() => {
+    console.log(`Text changed: ${text}`)
+  }, [text]) // `text`が変更されるたびにこの関数が実行されます
+
+  return (
+    <div>
+      <input
+        type='text'
+        value={text}
+        onChange={e => setText(e.target.value)}
+        placeholder='Type something...'
+      />
+      <p>You typed: {text}</p>
+    </div>
+  )
+}
+
+export default TextInputComponent
